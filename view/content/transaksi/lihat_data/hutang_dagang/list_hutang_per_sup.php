@@ -12,7 +12,7 @@
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" name="car">
                     <div class="input-group-append">
                     <button class="btn btn-primary" type="submit" name="cari">
-                        <i class="fas fa-search fa-sm"></i>
+                        <i class="fas fa-print fa-sm"></i>
                     </button>
                     </div>
                 </div>

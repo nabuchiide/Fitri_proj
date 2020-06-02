@@ -25,14 +25,14 @@
                     <td><?php echo $retur->id_retur;?></td>
                   </tr>
                   <tr>
-                    <td>Tanggal</td>
-                    <td>:</td>
-                    <td><?php echo date('d/m/Y', strtotime($retur->tanggal)); ?></td>
-                  </tr>
-                  <tr>
                     <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal</td>
+                    <td>:</td>
+                    <td><?php echo date('d/m/Y', strtotime($retur->tanggal)); ?></td>
                   </tr>
                   <tr>
                     <td>Status</td>

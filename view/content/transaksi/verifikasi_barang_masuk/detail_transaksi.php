@@ -84,6 +84,11 @@
                     <td><?php echo $permintaan_barang->id_order;?></td>
                   </tr>
                   <tr>
+                    <td>Nama Suplier</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
                     <td>No Faktur</td>
                     <td>:</td>
                     <td><input type="text" class="form-control" name="no_faktur" value="<?php if(!isset($_SESSION['no_faktur'])){echo $permintaan_barang->no_faktur;}else{echo $_SESSION['no_faktur'];}?>" required></td>
@@ -102,11 +107,6 @@
                     <td>Tanggal Penerimaan </td>
                     <td>:</td>
                     <td><input type="date" class="form-control" name="tanggal_penerimaan" value="<?php if(!isset($_SESSION['no_surat_jalan'])){echo $permintaan_barang->tanggal_penerimaan; }else{echo $_SESSION['tanggal_penerimaan'];}?>" <?php if($permintaan_barang->status == "barang masuk") {echo "disabled";}?> required ></td>
-                  </tr>
-                  <tr>
-                    <td>Nama Suplier</td>
-                    <td>:</td>
-                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
                   <tr>
                     <td>Status</td>

@@ -2,7 +2,7 @@
     class koneksi{
         private $dbhost = "localhost";
         private $dbuser = "root";
-        private $dbname = "pembelian_barang";
+        private $dbname = "hph_proj_db";
         private $dbpass = "";
         public $conn;
 

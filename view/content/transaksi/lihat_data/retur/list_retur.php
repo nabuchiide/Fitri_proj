@@ -12,7 +12,7 @@
                     <input type="date" class="form-control bg-light border-0 small" name="car">
                     <div class="input-group-append">
                     <button class="btn btn-primary" type="submit" name="cari">
-                        <i class="fas fa-search fa-sm"></i>
+                        <i class="fas fa-print fa-sm"></i>
                     </button>
                     </div>
                 </div>

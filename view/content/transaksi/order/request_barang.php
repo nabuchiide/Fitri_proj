@@ -97,7 +97,7 @@
                             <div class="col-sm-5">
                             <button type="cari" name="cari" class="btn btn-sm btn-primary btn-custom">
                                 <span class="icon text-white-50">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-print"></i>
                                 </span>
                                 <span class="text">Cari Data</span>
                             </button>

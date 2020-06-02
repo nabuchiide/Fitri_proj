@@ -14,7 +14,7 @@
                     <input type="date" class="form-control bg-light border-0 small" name="car">
                     <div class="input-group-append">
                     <button class="btn btn-primary" type="submit" name="cari">
-                        <i class="fas fa-search fa-sm"></i>
+                        <i class="fas fa-print fa-sm"></i>
                     </button>
                     </div>
                 </div>
@@ -34,8 +34,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal Pembelian</th>
 								    <th>Nama Suplier</th>
+                                    <th>Tanggal Pembelian</th>
                                     <th>Total Transaksi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -51,8 +51,8 @@
                                             <tr>
                                                 <form action="" method="post">
                                                     <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
-                                                    <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
 													<td><?php echo $key['nama_suplier']; ?></td>
+                                                    <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi']);?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">

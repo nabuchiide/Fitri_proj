@@ -40,6 +40,11 @@
                     <td><?php echo $permintaan_barang->id_order;?></td>
                   </tr>
                   <tr>
+                    <td>Nama Suplier</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
                     <td>Tanggal Permintaan</td>
                     <td>:</td>
                     <td><input type="date" class="form-control" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal;?>" disabled></td>
@@ -48,11 +53,6 @@
                     <td>Tanggal Pembelian</td>
                     <td>:</td>
                     <td><input type="date" class="form-control" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal_pembelian;?>" required <?php if($permintaan_barang->status == "dibeli"){echo "disabled";}?>></td>
-                  </tr>
-                  <tr>
-                    <td>Nama Suplier</td>
-                    <td>:</td>
-                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
                   <tr>
                     <td>Status</td>

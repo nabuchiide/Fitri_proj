@@ -27,9 +27,14 @@
               <p>
                 <table width = "50%">
                   <tr>
-                    <td>Id</td>
+                    <td>Id Order</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->id_order;?></td>
+                  </tr>
+                  <tr>
+                    <td>Suplier</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
                   <tr>
                     <td>No Surat Jalan</td>
@@ -40,11 +45,6 @@
                     <td>Tanggal Penerimaan </td>
                     <td>:</td>
                     <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_penerimaan)); ?></td>
-                  </tr>
-                  <tr>
-                    <td>Suplier</td>
-                    <td>:</td>
-                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
                   <tr>
                     <td>Status</td>
