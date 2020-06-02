@@ -26,10 +26,10 @@
                                     <th>Nomor</th>
                                     <th>Tanggal Permintaan</th>
                                     <th>Nama Suplier</th>
-                                    <th>Total transaksi</th>
+                                    <th>Total Harga</th>
                                     <th>Tanggal Pembelian</th>
                                     <th>Status</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

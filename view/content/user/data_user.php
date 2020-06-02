@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">Nama</label>
+                            <label for="" class="col-sm-4 col-form-label">Nama User</label>
                             <div class="col-sm-8">
                             <input type="text" class="form-control" id="" name="nama_user" required>
                             </div>

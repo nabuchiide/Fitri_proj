@@ -21,8 +21,6 @@
       // echo $jumlah."<br>";
       // echo $id_barang."<br>";
       foreach ($_SESSION['cart'] as $keys => $value) {
-        $date               = trim($_POST['hari_ini']);
-        $_SESSION['date']   = $date;
         if ($value['item_id']== $id_barang) {
           $_SESSION['cart'][$keys]['item_jumlah'] = $jumlah;
           echo "<div class='alert alert-success'><span class='fa fa-check'> Jumlah Item Barang Berhasil diperbaharui</span></div>";
@@ -121,7 +119,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total Belanja</th>
+                            <th colspan="3" align="right">Total Harga</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>

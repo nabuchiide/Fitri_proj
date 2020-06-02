@@ -160,7 +160,7 @@
 				</div>
 				
 		</div>
-		<a href="laporan_hutang_dagang_exel.php">Dapatkan File Exel</a>
+		<!-- <a href="laporan_hutang_dagang_exel.php">Dapatkan File Exel</a> -->
 	</body>
 </html>
 

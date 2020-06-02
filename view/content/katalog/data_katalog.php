@@ -22,23 +22,10 @@
         <div class="col-lg-7">
             <div class="card shadow mb-4 border-left-dark " style="width: 35rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Data Katalog</h5>
+                    <h5 class="card-title">Tambah Data Katalog</h5>
                     <h6 class="card-subtitle mb-2 text-muted"></h6>
                     <p class="card-text">
                     <form action="" method="post" class="form-horizontal">
-                        <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">Nama Barang</label>
-                            <div class="col-sm-8">
-                            <select class="custom-select" id="" required name="id_barang" data-live-search="true">
-                                <option value="">--Silahkan pilih--</option>
-                            <?php
-                            foreach($barang->tampil_barang_keseluruhan() as $bar){
-                            ?>
-                                <option value="<?= $bar['id_barang'];?>"><?= $bar['nama_barang']?></option>
-                            <?php } ?>
-                            </select>
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">Nama Suplier</label>
                             <div class="col-sm-8">
@@ -48,6 +35,19 @@
                             foreach($suplier->tampil() as $sup){
                             ?>
                                 <option value="<?= $sup['id_suplier'];?>"><?= $sup['nama_suplier']?></option>
+                            <?php } ?>
+                            </select>
+                            </div>
+                        </div>
+						  <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <div class="col-sm-8">
+                            <select class="custom-select" id="" required name="id_barang" data-live-search="true">
+                                <option value="">--Silahkan pilih--</option>
+                            <?php
+                            foreach($barang->tampil_barang_keseluruhan() as $bar){
+                            ?>
+                                <option value="<?= $bar['id_barang'];?>"><?= $bar['nama_barang']?></option>
                             <?php } ?>
                             </select>
                             </div>

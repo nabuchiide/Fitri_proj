@@ -159,6 +159,6 @@
 				</div>
 				
 		</div>
-		<a href="laporan_pelunasan_exel.php">Dapatkan File Exel</a>
+		<!-- <a href="laporan_pelunasan_exel.php">Dapatkan File Exel</a> -->
 	</body>
 </html>

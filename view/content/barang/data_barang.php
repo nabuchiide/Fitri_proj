@@ -308,7 +308,7 @@
                       <table class="table table-bordered table-striped" id="dataJenisBarang" width="100%" cellspacing="0">
                         <thead>
                           <tr>
-                            <th>Id_jenis</th>
+                            <th>Id jenis</th>
                             <th>Keterangan</th>
                             <th>Aksi</th>
                           </tr>
@@ -352,7 +352,7 @@
             <div class="col-md-pull-4 col">
               <div class="card shadow  border-left-dark">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold">Data Satuan</h6>
+                  <h6 class="m-0 font-weight-bold">Data Satuan Barang</h6>
                 </div>
                 <div class="card-body" >
                 <div class="table-responsive">

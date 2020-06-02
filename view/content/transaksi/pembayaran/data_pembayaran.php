@@ -24,7 +24,7 @@
                                     <th>Nama Suplier</th>
                                     <th>Total transaksi</th>
                                     <th>Status</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

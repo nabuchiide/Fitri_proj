@@ -35,7 +35,7 @@
               <p>
                 <table width = "50%">
                   <tr>
-                    <td>Id</td>
+                    <td>Id Order</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->id_order;?></td>
                   </tr>
@@ -50,7 +50,7 @@
                     <td><input type="date" class="form-control" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal_pembelian;?>" required <?php if($permintaan_barang->status == "dibeli"){echo "disabled";}?>></td>
                   </tr>
                   <tr>
-                    <td>Suplier</td>
+                    <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
@@ -69,7 +69,7 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
-                            <th>Harga barang</th>
+                            <th>Harga</th>
                             <th>Sub Harga</th>
                         </tr>
                       </thead>
@@ -93,7 +93,7 @@
                       <?php } } ?>
                       <tfoot>
                         <tr>
-                            <th colspan="4" align="right">Total Belanja</th>
+                            <th colspan="4" align="right"><?php if($permintaan_barang->status == "dipesan"){echo "Total Harga";} else {echo "Total Transaksi";}?></th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                             <!-- 43,420,000.00 -->
                         </tr>

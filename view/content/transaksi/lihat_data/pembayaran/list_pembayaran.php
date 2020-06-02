@@ -39,7 +39,7 @@
                                     <th>Tanggal Penerimaan</th>
                                     <th>Nama Suplier</th>
                                     <th>Total transaksi</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

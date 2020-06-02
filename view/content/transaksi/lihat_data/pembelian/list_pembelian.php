@@ -34,8 +34,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Suplier</th>
                                     <th>Tanggal Pembelian</th>
+								    <th>Nama Suplier</th>
                                     <th>Total Transaksi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -51,8 +51,8 @@
                                             <tr>
                                                 <form action="" method="post">
                                                     <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
-                                                    <td><?php echo $key['nama_suplier']; ?></td>
                                                     <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
+													<td><?php echo $key['nama_suplier']; ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi']);?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">
@@ -90,13 +90,13 @@
             <div class="col">
                 <div class="card shadow mb-4 border-left-dark">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold">Detail Pembelian Barang</h6>
+                        <h6 class="m-0 font-weight-bold">Detail Laporan Pembelian Barang</h6>
                     </div>
                     <div class="card-body" >
                     <p>
                 <table width = "50%">
                   <tr>
-                    <td>Id Permintaan</td>
+                    <td>Id Order</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->id_order;?></td>
                   </tr>
@@ -106,7 +106,7 @@
                     <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
                   </tr>
                   <tr>
-                    <td>Suplier</td>
+                    <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                   </tr>
@@ -118,9 +118,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang</th>
-                                        <th>Harga Transaksi</th>
+                                        <th>Harga </th>
                                         <th>Jumlah</th>
-                                        <th>Total Sub Harga</th>
+                                        <th>Sub Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>

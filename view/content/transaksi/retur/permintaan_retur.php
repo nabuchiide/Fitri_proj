@@ -34,6 +34,19 @@
     echo " <meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
     }
   }
+  if(isset($_POST['kosong'])){
+	  if(isset($_SESSION["cart"])){
+		unset($_SESSION['date']);
+		unset($_SESSION['total_belanja']);
+		unset($_SESSION['cart']);
+		unset($_SESSION['Id_ret']);
+		unset($_SESSION['Id_order']);
+	  }else{
+		unset($_SESSION['Id_ret']);
+		unset($_SESSION['Id_order']);
+	  }
+	  echo " <meta http-equiv='refresh' content='1;url=index.php?p=permintaan_retur'>";
+  }
   ?>
 <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h2 mb-0 text-gray-800">
@@ -56,7 +69,7 @@
                           $Id = $retur->id_terakhir();
                           ?>
                         <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">ID Retur</label>
+                            <label for="" class="col-sm-4 col-form-label">Id Retur</label>
                             <div class="col-sm-8">
                             <input type="text" class="form-control" id="" value ="<?php echo $Id; ?>" name="Id_retur" readonly>
                             </div>
@@ -64,30 +77,37 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">Id Order</label>
                             <div class="col-sm-8">
-                            <select class="custom-select" id="" required name="Id_req" data-live-search="true">
+                            <select class="custom-select" id="" name="Id_req" data-live-search="true">
                                 <option value="">--Silahkan pilih--</option>
                             <?php
                             $status = "dipesan";
                             $status1 = "dibeli";
                             foreach($permintaan_barang->tampil_selain2($status, $status1) as $key){ ?>
-                            <?php if (!isset($_SESSION['id_order'])) {?>
+                            <?php if (!isset($_SESSION['Id_order'])) {?>
                               <option value="<?= $key['id_order'];?>"><?= $key['id_order']." | | ".$key['nama_suplier']?></option>
                             <?php }else { ?>
-                                <option value="<?= $key['id_order'];?>" <?php if($_SESSION['id_order'] == $key['id_order']){echo "selected";}else{echo "disabled";}?>><?= $key['id_order']." | | ".$key['nama_suplier']?></option>
+                                <option value="<?= $key['id_order'];?>" <?php if($_SESSION['Id_order'] == $key['id_order']){echo "selected";}else{echo "disabled";}?>><?= $key['id_order']." | | ".$key['nama_suplier']?></option>
                             <?php }?>
-                            <?php } 
-                            ?>
+                            <?php }?>
                             </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label"></label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-5">
                             <button type="cari" name="cari" class="btn btn-sm btn-primary btn-custom">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-search"></i>
                                 </span>
                                 <span class="text">Cari Data</span>
+                            </button>
+                            </div>
+							<div class="col-sm-3">
+                            <button type="cari" name="kosong" class="btn btn-sm btn-danger btn-custom">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-retweet"></i>
+                                </span>
+                                <span class="text">Refresh</span>
                             </button>
                             </div>
                         </div>
@@ -103,7 +123,7 @@
         <div class="col">
           <div class="card shadow mb-4 border-left-dark">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">List Data Barang</h6>
+              <h6 class="m-0 font-weight-bold">Daftar Barang</h6>
             </div>
             <div class="card-body" >
               <div class="table-responsive">
@@ -166,7 +186,7 @@
                     <i class="fas fa-list"></i>
                   </span>
                   <span class="icon text-white-50">
-                    Daftar order
+                    Daftar retur
                   </span>
                 </button>
               </a>

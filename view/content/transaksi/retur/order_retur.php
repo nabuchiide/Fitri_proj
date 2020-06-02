@@ -15,7 +15,7 @@
     
     if (isset($_POST['ordered'])) {
       $tanggal               = trim($_POST['hari_ini']);
-      $id_order = $_SESSION['id_order'];
+      $id_order = $_SESSION['Id_order'];
       $id_retur = $_SESSION['Id_ret'];
       $status   = "Retur";
       $_SESSION['date']   = $tanggal;
@@ -44,7 +44,7 @@
         <div class="col">
           <div class="card shadow mb-4 border-left-dark">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">List Permintaan</h6>
+              <h6 class="m-0 font-weight-bold">Detail Permintaan Retur</h6>
             </div>
             <div class="card-body" >
               <form action="" method="post">
@@ -59,9 +59,9 @@
                       <thead>
                         <tr>
                             <th>Nama Barang</th>
-                            <th>Harga Barang</th>
-                            <th>Jumlah Barang</th>
-                            <th>Total Barang</th>
+                            <th>Jumlah</th>
+                            <th>Harga</th>
+                            <th>Sub Harga</th>
                             <th width="10%">Aksi</th>
                         </tr>
                       </thead>
@@ -99,7 +99,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total Belanja</th>
+                            <th colspan="3" align="right">Total Pengembalian</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>
@@ -118,7 +118,7 @@
                       <i class="fas fa-list"></i>
                     </span>
                     <span class="icon text-white-50">
-                    List Pemesanan
+                    Daftar Permintaan
                     </span>
                   </button>
                   </a>
@@ -156,6 +156,7 @@
         foreach ($_SESSION['cart'] as $keys => $value) {
           if ($value['item_id']== $id_barang) {
             $_SESSION['cart'][$keys]['item_jumlah'] = $jumlah;
+			echo "<div class='alert alert-success'><span class='fa fa-check'> Jumlah Item Barang Berhasil diperbaharui</span></div>";
             echo "<meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
              }
         }

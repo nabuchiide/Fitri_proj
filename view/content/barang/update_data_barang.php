@@ -64,19 +64,7 @@
                                   </select>
                                   </div>
                               </div>
-                              <div class="form-group row">
-                                  <label for="" class="col-sm-4 col-form-label">Harga</label>
-                                  <div class="col-sm-8">
-                                  <input type="text" class="form-control" id="" name="harga_barang" value="<?php echo $barang->harga_barang?>" required>
-                                  </div>
-                              </div>
-                              <div class="form-group row">
-                                  <label for="" class="col-sm-4 col-form-label">Jumlah</label>
-                                  <div class="col-sm-8">
-                                  <input type="text" class="form-control" id="" name="jumlah_barang" value="<?php echo $barang->jumlah_barang?>" required>
-                                  </div>
-                              </div>
-                              <div class="form-group row">
+							   <div class="form-group row">
                                   <label for="" class="col-sm-4 col-form-label">Satuan</label>
                                   <div class="col-sm-8">
                                   <select class="custom-select" id="validationCustom04" required name="satuan_barang">
@@ -86,6 +74,18 @@
                                       <option value="<?= $ket1['id_satuan_barang'];?>" <?php if($barang->id_satuan == $ket1['id_satuan_barang']) {echo "selected"; }?>><?= $ket1['keterangan_satuan_barang']?></option>
                                   <?php } ?>
                                   </select>
+                                  </div>
+                              </div>
+							   <div class="form-group row">
+                                  <label for="" class="col-sm-4 col-form-label">Jumlah</label>
+                                  <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="" name="jumlah_barang" value="<?php echo $barang->jumlah_barang?>" required>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="" class="col-sm-4 col-form-label">Harga</label>
+                                  <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="" name="harga_barang" value="<?php echo $barang->harga_barang?>" required>
                                   </div>
                               </div>
                             </p>

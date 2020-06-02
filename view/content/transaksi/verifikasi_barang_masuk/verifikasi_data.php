@@ -23,7 +23,7 @@
                                     <th>Total transaksi</th>
                                     <th>Tanggal Barang Masuk</th>
                                     <th>Status</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

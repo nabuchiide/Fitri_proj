@@ -37,7 +37,7 @@
                                     <th>Tanggal</th>
                                     <th>Nama Suplier</th>
                                     <th>Total Transaksi</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,7 +95,7 @@
         <div class="col">
           <div class="card shadow mb-4 border-left-dark">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Data Detail Retur</h6>
+                <h6 class="m-0 font-weight-bold">Detail Laporan Retur Pembelian</h6>
             </div>
             <div class="card-body" >
               <p>
@@ -111,14 +111,9 @@
                     <td><?php echo date('d/m/Y', strtotime($retur->tanggal)); ?></td>
                   </tr>
                   <tr>
-                    <td>Suplier</td>
+                    <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
-                  </tr>
-                  <tr>
-                    <td>Status</td>
-                    <td>:</td>
-                    <td><?php echo $retur->status; ?></td>
                   </tr>
                 </table>
               </p>
@@ -130,8 +125,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Harga barang</th>
                             <th>Jumlah</th>
+                            <th>Harga</th>
                             <th>Sub Harga</th>
                         </tr>
                       </thead>
@@ -146,8 +141,8 @@
                             <form action="" method="post">
                             <td><?php echo $no++; ?><input type="hidden" name="detil_ret_id" value="<?php echo $key['detil_ret_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
+							<td><?php echo $key['jumlah'];?></td>
                             <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
-                            <td><?php echo $key['jumlah'];?></td>
                             <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>

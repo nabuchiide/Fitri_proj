@@ -40,7 +40,7 @@
                                     <th>Hutang</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
-                                    <th>Detail</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -1,7 +1,7 @@
 <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h2 mb-0 text-gray-800">
         <i class="fa fa-random" aria-hidden="true"></i>    
-            Data Retur Pembelian
+            Lihat Data Retur Pembelian
         </h1>
     </div>
 <div class="col">
@@ -10,7 +10,7 @@
         <div class="col">
           <div class="card shadow mb-4 border-left-dark">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold">Dafar Retur Pembelian</h6>
+              <h6 class="m-0 font-weight-bold">Data Retur Pembelian</h6>
             </div>
             <div class="card-body" >
                     <div class="table-responsive">
@@ -22,7 +22,7 @@
                                     <th>Nama Suplier</th>
                                     <th>Total transaksi</th>
                                     <th>Status</th>
-                                    <th>Detail Barang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

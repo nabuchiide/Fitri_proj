@@ -42,19 +42,6 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>No Faktur</th>
-                                    <th>No Surat Jalan</th>
-                                    <th>Tanggal Pelunasan</th>
-                                    <th>Nama Suplier</th>
-                                    <th>Hutang</th>
-                                    <th>Status</th>
-                                    <th>Keterangan</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 <?php 
                                     if ($hutang->tampil()!=false) {

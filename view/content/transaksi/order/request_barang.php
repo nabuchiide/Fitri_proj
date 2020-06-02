@@ -35,6 +35,19 @@
           }
      echo " <meta http-equiv='refresh' content='1;url=index.php?p=order'>";
   }
+  if(isset($_POST['kosong'])){
+	  if(isset($_SESSION["cart"])){
+		unset($_SESSION['date']);
+		unset($_SESSION['total_belanja']);
+		unset($_SESSION['cart']);
+		unset($_SESSION['suplier']);
+		unset($_SESSION['id_order']);
+	  }else{
+		unset($_SESSION['suplier']);
+		unset($_SESSION['id_order']);
+	  }
+	  echo " <meta http-equiv='refresh' content='1;url=index.php?p=request_barang'>";
+  }
   ?>
 <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h2 mb-0 text-gray-800">
@@ -77,16 +90,24 @@
                             <?php } ?>
                             </select>
                             </div>
-                        </div>
+						</div>
                        
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label"></label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-5">
                             <button type="cari" name="cari" class="btn btn-sm btn-primary btn-custom">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-search"></i>
                                 </span>
                                 <span class="text">Cari Data</span>
+                            </button>
+                            </div>
+							<div class="col-sm-3">
+                            <button type="cari" name="kosong" class="btn btn-sm btn-danger btn-custom">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-retweet"></i>
+                                </span>
+                                <span class="text">Refresh</span>
                             </button>
                             </div>
                         </div>
@@ -169,7 +190,7 @@
                     <i class="fas fa-list"></i>
                   </span>
                   <span class="icon text-white-50">
-                    Daftar order
+                    Daftar Pesan
                   </span>
                 </button>
               </a>

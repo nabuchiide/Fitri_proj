@@ -37,13 +37,6 @@
                                     <th>Hutang Dagang</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Suplier</th>
-                                    <th>Hutang</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                             <?php 
                             if ($hutang->tampil_per_suplier()!=false) {

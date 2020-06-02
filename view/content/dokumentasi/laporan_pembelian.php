@@ -142,6 +142,6 @@
 				</div>
 				
 		</div>
-		<a href="laporan_pembelian_exel.php">Dapatkan File Exel</a>
+		<!-- <a href="laporan_pembelian_exel.php">Dapatkan File Exel</a> -->
 	</body>
 </html>

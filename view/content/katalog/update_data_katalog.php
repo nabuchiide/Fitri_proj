@@ -32,20 +32,7 @@
                     <p class="card-text">
                     <form action="" method="post" class="form-horizontal">
                         <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">Barang</label>
-                            <div class="col-sm-8">
-                            <select class="custom-select" id="" required name="id_barang" data-live-search="true">
-                                <option value="">--Silahkan pilih--</option>
-                            <?php
-                            foreach($barang->tampil_barang_keseluruhan() as $bar){
-                            ?>
-                                <option value="<?= $bar['id_barang'];?>"<?php if ($katalog->id_barang == $bar['id_barang']) {echo "selected";}?> ><?= $bar['nama_barang']?></option>
-                            <?php } ?>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">Suplier</label>
+                            <label for="" class="col-sm-4 col-form-label">Nama Suplier</label>
                             <div class="col-sm-8">
                             <select class="custom-select" id="" required name="id_suplier" data-live-search="true">
                                 <option value="">--Silahkan pilih--</option>
@@ -53,6 +40,19 @@
                             foreach($suplier->tampil() as $sup){
                             ?>
                                 <option value="<?= $sup['id_suplier'];?>"<?php if ($katalog->id_suplier == $sup['id_suplier']) {echo "selected";}?> ><?= $sup['nama_suplier']?></option>
+                            <?php } ?>
+                            </select>
+                            </div>
+                        </div>
+						 <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Nama Barang</label>
+                            <div class="col-sm-8">
+                            <select class="custom-select" id="" required name="id_barang" data-live-search="true">
+                                <option value="">--Silahkan pilih--</option>
+                            <?php
+                            foreach($barang->tampil_barang_keseluruhan() as $bar){
+                            ?>
+                                <option value="<?= $bar['id_barang'];?>"<?php if ($katalog->id_barang == $bar['id_barang']) {echo "selected";}?> ><?= $bar['nama_barang']?></option>
                             <?php } ?>
                             </select>
                             </div>

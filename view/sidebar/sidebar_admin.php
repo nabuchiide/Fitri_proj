@@ -85,7 +85,7 @@
           </a>
           <div id="navretur" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="index.php?p=data_retur">Data Retur Pembelian</a>
+              <a class="collapse-item" href="index.php?p=data_retur">Lihat Data Retur Pembelian</a>
               <a class="collapse-item" href="index.php?p=list_retur">Laporan Retur Pembelian</a>
             </div>
           </div>

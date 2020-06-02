@@ -42,9 +42,9 @@
           <!-- Main Content -->
             <div class="cotainer-fluid">
             <?php 
-            // echo "<pre>";
-            // print_r($_SESSION);
-            // echo "</pre>";
+             //echo "<pre>";
+             //print_r($_SESSION);
+             //echo "</pre>";
               $loader = new loader('p');
               ?>
             </div>
