@@ -76,9 +76,9 @@
                       <thead>
                         <tr>
                             <th>Nama Barang</th>
-                            <th>Harga Barang</th>
-                            <th>Jumlah Barang</th>
-                            <th>Total Barang</th>
+                            <th>Jumlah</th>
+                            <th>Harga</th>
+                            <th>Sub Harga</th>
                             <th>Aksi</th>
                         </tr>
                       </thead>
@@ -92,10 +92,10 @@
                         <form action="" method="post">
                           <input type="hidden" value="<?php echo $values["item_id"]; ?>" name="id_bar">
                           <td><?php echo $values["item_nama"];?></td>
-                          <td>Rp. <?php echo number_format($values["item_harga"],2);?></td>
                           <td>
                           <input type="text" class="form-control"  name="jumlah" value = "<?php echo $values["item_jumlah"];?>">
                           </td>
+                          <td>Rp. <?php echo number_format($values["item_harga"],2);?></td>
                           <td><?php echo number_format($values["item_jumlah"] * $values["item_harga"],2);?></td>
                           <td >
                             <button type="submit" name="edit" class="btn btn-sm btn-primary btn-custom" >
@@ -119,7 +119,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total Harga</th>
+                            <th colspan="4" align="right">Total Harga</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>

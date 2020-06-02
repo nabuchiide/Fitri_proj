@@ -101,14 +101,14 @@
                     <td><?php echo $permintaan_barang->id_order;?></td>
                   </tr>
                   <tr>
-                    <td>Tanggal Pembelian </td>
-                    <td>:</td>
-                    <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
-                  </tr>
-                  <tr>
                     <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal Pembelian </td>
+                    <td>:</td>
+                    <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
                   </tr>
                 </table>
               </p>
@@ -118,8 +118,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang</th>
-                                        <th>Harga </th>
                                         <th>Jumlah</th>
+                                        <th>Harga </th>
                                         <th>Sub Harga</th>
                                     </tr>
                                 </thead>
@@ -134,8 +134,8 @@
                                             <form action="" method="post">
                                             <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
                                             <td><?php echo $key['nama_barang']; ?></td>
-                                            <td><?php echo number_format($key['harga_transaksi'],2);?></td>
                                             <td><?php echo $key['jumlah']; ?></td>
+                                            <td><?php echo number_format($key['harga_transaksi'],2);?></td>
                                             <td>Rp <?php echo number_format($key['harga_transaksi'] * $key['jumlah'], 2);?></td>
                                             </form>
                                         </tr>
@@ -146,7 +146,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th colspan="3" align="right">Total transaksi</th>
+                                    <th colspan="4" align="right">Total transaksi</th>
                                     <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                                 </tr>
                                 </tfoot>

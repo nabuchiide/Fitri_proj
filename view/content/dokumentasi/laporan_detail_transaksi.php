@@ -53,6 +53,7 @@
 				border:2px solid #ddd;
 				padding:10px;
 				font-weight:bold;
+				text-align:left;
 				
 			}
 			.table tfoot th {
@@ -112,16 +113,31 @@
 				<hr>
 				<hr>
 				<center>
-					Detail Transaksi
+					Detail Laporan <?php if ($type == 'pembelian') {
+						echo "Pembelian";
+					} elseif ($type == 'pembayaran') {
+						echo "Pembayaran";
+					} elseif ($type == 'penerimaan') {
+						echo "Penerimaan";
+					} elseif($type == 'pelunasan') {
+						echo "Pelunasan";
+					} else {
+						echo "ERROR!!";
+					}?> Barang
 				</center>
 				<div class="container">
 				<div class="row">
 				<p>
                     <table width = "50%">
                     <tr>
-                        <td>Id</td>
+                        <td>Id Order</td>
                         <td>:</td>
                         <td><?php echo $permintaan_barang->id_order;?></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Suplier</td>
+                        <td>:</td>
+                        <td><?php echo $permintaan_barang->nama_suplier; ?></td>
                     </tr>
                     <tr <?php if($type == 'pembelian'){echo "hidden"; $a = "Admin"; $b="Keuangan"; $a1="Iis Parwati"; $b1 = "Andi";}?>>
                         <td>No Surat Jalan</td>
@@ -138,11 +154,6 @@
                         <td>:</td>
                         <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
                     </tr>
-                    <tr>
-                        <td>Suplier</td>
-                        <td>:</td>
-                        <td><?php echo $permintaan_barang->nama_suplier; ?></td>
-                    </tr>
                     <tr <?php if($type == 'pembelian'){echo "hidden";}?>>
                         <td>Status</td>
                         <td>:</td>
@@ -155,8 +166,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Harga barang</th>
                             <th>Jumlah</th>
+                            <th>Harga</th>
                             <th>Sub Harga</th>
                         </tr>
                       </thead>
@@ -171,8 +182,8 @@
                             <form action="" method="post">
                             <td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detil_cart_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
-                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
                             <td><?php echo $key['jumlah'];?></td>
+                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
                             <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>
@@ -181,7 +192,7 @@
                     } 
                     ?>
                         <tfoot>
-                            <th colspan="3" align="right" border="1">Total transaksi</th>
+                            <th colspan="4" align="left" border="1">Total transaksi</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tfoot>
 					</tbody>

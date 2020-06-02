@@ -18,8 +18,8 @@
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Tanggal</th>
                                     <th>Nama Suplier</th>
+                                    <th>Tanggal</th>
                                     <th>Total transaksi</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -37,8 +37,8 @@
                                                     <td><?php echo $no++; ?>
                                                         <input type="hidden" value="<?php echo $key['id_retur']; ?>" name="id_retur">
                                                     </td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td><?php echo $key['status']; ?></td>
                                                     <td>

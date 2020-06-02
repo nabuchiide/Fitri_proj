@@ -34,8 +34,8 @@
                                 <tr>
                                     <th>Nomor</th>
                                     <th>Id Order</th>
-                                    <th>Tanggal</th>
                                     <th>Nama Suplier</th>
+                                    <th>Tanggal</th>
                                     <th>Total Transaksi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -53,8 +53,8 @@
                                                         <input type="hidden" value="<?php echo $key['id_retur']; ?>" name="id_retur">
                                                     </td>
                                                     <td><?php echo $key['id_order'];?></td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                       <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">
@@ -89,7 +89,7 @@
    <div class="col">
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
-        <a href="content/dokumentasi/laporan_detail_retur.php?id=<?php echo $id_retur;?>&&type=pembelian" target= "_blank"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Cetak Detail</a>
+        <a href="content/dokumentasi/laporan_detail_retur.php?id=<?php echo $id_retur;?>" target= "_blank"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Cetak Detail</a>
     </div>
       <div class="row">
         <div class="col">
@@ -106,14 +106,14 @@
                     <td><?php echo $retur->id_retur;?></td>
                   </tr>
                   <tr>
-                    <td>Tanggal</td>
-                    <td>:</td>
-                    <td><?php echo date('d/m/Y', strtotime($retur->tanggal)); ?></td>
-                  </tr>
-                  <tr>
                     <td>Nama Suplier</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal</td>
+                    <td>:</td>
+                    <td><?php echo date('d/m/Y', strtotime($retur->tanggal)); ?></td>
                   </tr>
                 </table>
               </p>
@@ -152,7 +152,7 @@
                     } ?>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total transaksi</th>
+                            <th colspan="4" align="right">Total transaksi</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>

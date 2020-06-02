@@ -56,6 +56,7 @@
 				border:2px solid #ddd;
 				padding:10px;
 				font-weight:bold;
+				text-align:left;
 				
 			}
 			

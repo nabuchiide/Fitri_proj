@@ -24,10 +24,10 @@
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Tanggal Permintaan</th>
                                     <th>Nama Suplier</th>
-                                    <th>Total Harga</th>
+                                    <th>Tanggal Permintaan</th>
                                     <th>Tanggal Pembelian</th>
+                                    <th>Total Harga</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -45,12 +45,12 @@
                                                     <td><?php echo $no++; ?>
                                                         <input type="hidden" value="<?php echo $key['id_order']; ?>" name="id_order">
                                                     </td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
-                                                    <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td><?php if ($key['status'] == "dipesan") {
                                                         echo "Proses verifikasi";
                                                     } else { echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
+                                                    <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td><?php echo $key['status']; ?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">

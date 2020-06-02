@@ -59,8 +59,8 @@
                       <thead>
                         <tr>
                             <th>Nama Barang</th>
-                            <th>Jumlah</th>
                             <th>Harga</th>
+                            <th>Jumlah</th>
                             <th>Sub Harga</th>
                             <th width="10%">Aksi</th>
                         </tr>
@@ -99,7 +99,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total Pengembalian</th>
+                            <th colspan="4" align="right">Total Transaksi</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>

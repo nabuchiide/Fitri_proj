@@ -40,8 +40,8 @@
                         <tr>
                             <th>NO</th>
                             <th>Nama Barang</th>
-                            <th>Harga Barang</th>
-                            <th>Jumlah Barang</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
                             <th>Total Barang</th>
                             <th>Aksi</th>
                         </tr>
@@ -80,7 +80,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total Belanja</th>
+                            <th colspan="4" align="right">Total Belanja</th>
                             <th>Rp <?php echo number_format($total,2); ?></th>
                             <th>Aksi</th>
                         </tr>

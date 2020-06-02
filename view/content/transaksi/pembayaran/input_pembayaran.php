@@ -109,7 +109,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Harga barang</th>
+                            <th>Harga</th>
                             <th>Jumlah</th>
                             <th>Sub Harga</th>
                         </tr>

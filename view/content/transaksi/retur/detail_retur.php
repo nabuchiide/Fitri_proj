@@ -78,7 +78,7 @@
                     ?>
                       <tfoot>
                         <tr>
-                            <th colspan="3" align="right">Total transaksi</th>
+                            <th colspan="4" align="right">Total transaksi</th>
                             <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>
