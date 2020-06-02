@@ -80,18 +80,18 @@
                       </p>
                       <p>
                       
-                        <a href="index.php?p=data_pelunasan" class="btn btn-sm btn-secondary btn-custom">
-                          <span class="icon text-white-50">
-                              <i class="fas fa-reply"></i>
-                          </span>
-                        <span class="text">Kembali</span>
-                      </a>
                       <button type="submit" name="lunas" class="btn btn-sm btn-success btn-custom"  <?php if($status == "Lunas"){echo "hidden";}?>>
                           <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
                           </span>
                           <span class="text">Lunasi</span>
                         </button>
+                        <a href="index.php?p=data_pelunasan" class="btn btn-sm btn-secondary btn-custom">
+                          <span class="icon text-white-50">
+                              <i class="fas fa-reply"></i>
+                          </span>
+                        <span class="text">Kembali</span>
+                      </a>
                       </form>
                     </p>
                 </div>

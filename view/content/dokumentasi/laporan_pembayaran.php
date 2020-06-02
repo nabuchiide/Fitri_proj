@@ -112,6 +112,7 @@
 					<thead>
                         <tr>
                             <th>No</th>
+							<th>Nomor Faktur</th>
 							<th>Nomor Surat Jalan</th>
                             <th>Nama Suplier</th>
             	            <th>Tanggal Pembelian</th>

@@ -45,6 +45,23 @@
 								}
 						});
                     });
+
+    // jQuery('#TabelData').ready(function() {
+    //                     jQuery('#TabelData').DataTable({
+		// 						"language" : {
+		// 							"lengthMenu" : "Tampilkan _MENU_ data per halaman",
+		// 							"info" : "Menampilkan halaman _PAGE_ dari _PAGES_",
+		// 							"infoEmpty" : "Data tidak ada",
+		// 							"infoFiltered" : "(hasil dari _MAX_ total data)",
+		// 							"zeroRecords" : "(tidak ada data, maaf)",
+		// 							"paginate" : {"previous" : "sebelum","next" : "selanjutnya"},
+		// 							"search" : "Cari"
+
+		// 						}
+    //             "ordering": false,
+
+		// 				});
+    //                 });
   </script>
   
   <!-- Page level custom scripts -->

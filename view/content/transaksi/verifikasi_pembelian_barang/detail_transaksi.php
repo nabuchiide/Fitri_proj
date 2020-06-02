@@ -94,7 +94,7 @@
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right"><?php if($permintaan_barang->status == "dipesan"){echo "Total Harga";} else {echo "Total Transaksi";}?></th>
-                            <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
+                            <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                             <!-- 43,420,000.00 -->
                         </tr>
                       </tfoot>

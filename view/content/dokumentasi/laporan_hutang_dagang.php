@@ -114,7 +114,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Suplier</th>
-                                    <th>Hutang</th>
+                                    <th>Hutang Dagang</th>
                                 </tr>
                             </thead>
                             

@@ -61,8 +61,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Harga</th>
                             <th>Jumlah</th>
+                            <th>Harga</th>
                             <th>Sub Harga</th>
                         </tr>
                       </thead>
@@ -77,8 +77,8 @@
                             <form action="" method="post">
                             <td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detil_cart_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
-                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
                             <td><?php echo $key['jumlah'];?></td>
+                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
                             <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>
@@ -91,7 +91,7 @@
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right">Total transaksi</th>
-                            <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
+                            <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>
                 </table>

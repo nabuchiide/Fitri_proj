@@ -120,7 +120,7 @@
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right">Total Harga</th>
-                            <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
+                            <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>
                       <?php 

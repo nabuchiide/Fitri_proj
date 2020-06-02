@@ -123,7 +123,7 @@
 						echo "Pelunasan";
 					} else {
 						echo "ERROR!!";
-					}?> Barang
+					}?>
 				</center>
 				<div class="container">
 				<div class="row">
@@ -138,6 +138,11 @@
                         <td>Nama Suplier</td>
                         <td>:</td>
                         <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                    </tr>
+					<tr <?php if($type == 'pembelian'){echo "hidden"; $a = "Admin"; $b="Keuangan"; $a1="Iis Parwati"; $b1 = "Andi";}?>>
+                        <td>No Faktur</td>
+                        <td>:</td>
+                        <td><?php echo $permintaan_barang->no_faktur;?></td>
                     </tr>
                     <tr <?php if($type == 'pembelian'){echo "hidden"; $a = "Admin"; $b="Keuangan"; $a1="Iis Parwati"; $b1 = "Andi";}?>>
                         <td>No Surat Jalan</td>
@@ -193,7 +198,7 @@
                     ?>
                         <tfoot>
                             <th colspan="4" align="left" border="1">Total transaksi</th>
-                            <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
+                            <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                         </tfoot>
 					</tbody>
            			 </table>

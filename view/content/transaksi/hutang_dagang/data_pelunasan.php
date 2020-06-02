@@ -34,9 +34,9 @@
                                     <th>No</th>
                                     <th>No Faktur</th>
                                     <th>No Surat Jalan</th>
-                                    <th>Tanggal Pelunasan</th>
                                     <th>Nama Suplier</th>
-                                    <th>Hutang</th>
+                                    <th>Tanggal Pelunasan</th>
+                                    <th>Total Transaksi</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>Aksi</th>
@@ -78,10 +78,10 @@
                                                     <td><?php echo $no++; ?> <input type="hidden" value="<?php echo $key['id_pembayaran']; ?>" name="id_pembayaran"> </td>
                                                     <td><?php echo $key['nomor_faktur'];?></td>
                                                     <td><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
+                                                    <td><?php echo $key['nama_suplier']; ?></td>
                                                     <td><?php if ($key['status'] == "Belum Lunas") {
                                                         echo "Proses verifikasi";
                                                     } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
-                                                    <td><?php echo $key['nama_suplier']; ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td><?php echo $key['status']; ?></td>
                                                     <td><?php echo $a; ?></td>

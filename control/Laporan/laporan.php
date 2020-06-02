@@ -109,6 +109,7 @@
                 <tr>
                 	<form action="" method="post">
                     <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
+                    <td><?php echo $key['nomor_faktur']?></td>
                     <td><?php echo $key['no_surat_jalan']?></td>
             	    <td><?php echo $key['nama_suplier']; ?></td>
                     <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>

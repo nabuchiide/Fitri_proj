@@ -36,8 +36,8 @@
                                     <th>No</th>
                                     <th>No Faktur</th>
                                     <th>No Surat Jalan</th>
-                                    <th>Tanggal Penerimaan</th>
                                     <th>Nama Suplier</th>
+                                    <th>Tanggal Penerimaan</th>
                                     <th>Total transaksi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -57,8 +57,8 @@
                                                     </td>
                                                     <td><?php echo $key['nomor_faktur']?></td>
                                                     <td><?php echo $key['no_surat_jalan'];?></td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); ?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">
@@ -107,9 +107,18 @@
                     <p>
                 <table width = "50%">
                   <tr>
-                    <td>Id Permintaan</td>
+                    <td>Id Order</td>
                     <td>:</td>
                     <td><?php echo $permintaan_barang->id_order;?></td>
+                  </tr>
+                    <td>Nama Suplier</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
+                  </tr>
+                  <tr>
+                    <td>No Faktur</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->no_faktur; ?></td>
                   </tr>
                   <tr>
                     <td>No Surat Jalan</td>
@@ -121,11 +130,6 @@
                     <td>:</td>
                     <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_penerimaan)); ?></td>
                   </tr>
-                  <tr>
-                    <td>Nama Suplier</td>
-                    <td>:</td>
-                    <td><?php echo $permintaan_barang->nama_suplier; ?></td>
-                  </tr>
                 </table>
               </p>
                         <div class="table-responsive">
@@ -134,9 +138,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang</th>
-                                        <th>Harga Transaksi</th>
                                         <th>Jumlah</th>
-                                        <th>Total Sub Harga</th>
+                                        <th>Harga</th>
+                                        <th>Sub Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -150,8 +154,8 @@
                                             <form action="" method="post">
                                             <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
                                             <td><?php echo $key['nama_barang']; ?></td>
-                                            <td><?php echo number_format($key['harga_transaksi'],2);?></td>
                                             <td><?php echo $key['jumlah']; ?></td>
+                                            <td><?php echo number_format($key['harga_transaksi'],2);?></td>
                                             <td>Rp <?php echo number_format($key['harga_transaksi'] * $key['jumlah'], 2);?></td>
                                             </form>
                                         </tr>
@@ -163,7 +167,7 @@
                                 <tfoot>
                                 <tr>
                                     <th colspan="4" align="right">Total transaksi</th>
-                                    <th colspan ="2">Rp <?php echo number_format($total,2); ?></th>
+                                    <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                                 </tr>
                                 </tfoot>
 

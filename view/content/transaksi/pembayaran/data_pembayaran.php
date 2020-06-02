@@ -20,8 +20,8 @@
                                     <th>No</th>
                                     <th>No Faktur</th>
                                     <th>No Surat Jalan</th>
-                                    <th>Tanggal Penerimaan</th>
                                     <th>Nama Suplier</th>
+                                    <th>Tanggal Penerimaan</th>
                                     <th>Total transaksi</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -42,8 +42,8 @@
                                                     </td>
                                                     <td><?php echo $key['nomor_faktur'];?></td>
                                                     <td><?php echo $key['no_surat_jalan'];?></td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); ?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td><?php echo $key['status']; ?></td>
                                                     <td>

@@ -29,7 +29,7 @@
             </div>
             <div class="card-body" >
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped" width="100%" cellspacing="0" id="dataTable">
+                        <table class="table table-bordered table-striped" width="100%" cellspacing="0" id="TabelData">
                         <thead>
                                 <tr>
                                     <th>No</th>
