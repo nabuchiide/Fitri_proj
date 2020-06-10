@@ -22,7 +22,7 @@
         }
         public function tampil_detail_retur(){
             $koneksi = new koneksi;
-            $query = mysqli_query($koneksi->conn, "SELECT `retur`.`id_retur`, `status`, `total_transaksi`, `tanggal`, `id_order`, `detil_ret_id`, `nama_barang`, `harga_transaksi`, `detail_retur`.`id_retur`, `jumlah`FROM `retur` join `detail_retur` on `retur`.`id_retur` = `detail_retur`.`id_retur`");
+            $query = mysqli_query($koneksi->conn, "SELECT `retur`.`id_retur`, `status`, `total_transaksi`, `tanggal`, `id_order`, `detail_ret_id`, `nama_barang`, `harga_transaksi`, `detail_retur`.`id_retur`, `jumlah`FROM `retur` join `detail_retur` on `retur`.`id_retur` = `detail_retur`.`id_retur`");
             if (mysqli_num_rows($query)>0) {
                 while ($row= mysqli_fetch_array($query)) {
                     $data[]= $row;

@@ -1,6 +1,6 @@
 <?php 
   $id_order = $_GET['id'];
-  $permintaan_barang->detil($id_order);
+  $permintaan_barang->detail($id_order);
   if (isset($_POST['beli'])) {
     $status = "dibeli";
     $tanggal_pembelian = $_POST['tanggal_pembelian']; 
@@ -30,10 +30,11 @@
                   echo "Detail Transaksi Pembelian Barang";
                 }?></h6>
             </div>
+
             <form action="" method="post">
             <div class="card-body" >
               <p>
-                <table width = "50%">
+               <table width="50%">
                   <tr>
                     <td>Id Order</td>
                     <td>:</td>
@@ -47,12 +48,12 @@
                   <tr>
                     <td>Tanggal Permintaan</td>
                     <td>:</td>
-                    <td><input type="date" class="form-control" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal;?>" disabled></td>
+                    <td><input type="date" class="form-control col-sm-7" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal;?>" disabled></td>
                   </tr>
                   <tr>
                     <td>Tanggal Pembelian</td>
                     <td>:</td>
-                    <td><input type="date" class="form-control" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal_pembelian;?>" required <?php if($permintaan_barang->status == "dibeli"){echo "disabled";}?>></td>
+                    <td><input type="date" class="form-control col-sm-7" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal_pembelian;?>" required <?php if($permintaan_barang->status == "dibeli"){echo "disabled";}?>></td>
                   </tr>
                   <tr>
                     <td>Status</td>
@@ -89,8 +90,8 @@
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
-                      </tbody>
                       <?php } } ?>
+					  </tbody>
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right"><?php if($permintaan_barang->status == "dipesan"){echo "Total Harga";} else {echo "Total Transaksi";}?></th>

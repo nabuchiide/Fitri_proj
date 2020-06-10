@@ -89,7 +89,7 @@
 <?php 
     if (isset($_POST['detail'])) {
         $id_order          = trim($_POST['id_order']);
-        $permintaan_barang->detil($id_order)?> 
+        $permintaan_barang->detail($id_order)?> 
         <div class="col">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"></h1>
@@ -101,7 +101,7 @@
             
                 <div class="card shadow mb-4 border-left-dark">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold">Detail Pembayaran Barang</h6>
+                        <h6 class="m-0 font-weight-bold">Detail Laporan Pembayaran Barang</h6>
                     </div>
                     <div class="card-body" >
                     <p>

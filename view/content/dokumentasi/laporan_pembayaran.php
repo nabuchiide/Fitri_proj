@@ -104,10 +104,15 @@
 				<hr>
 				<hr>
 				<center>
-					Laporan Pembayaran
-					
+					LAPORAN PEMBAYARAN
 				</center>
-				<div class="container">
+				<div class="container"> 
+				<?php
+					if (isset($_GET['src'])){
+						echo "Tanggal : ";
+						echo date('d/m/Y', strtotime($_GET['src'])); 
+					}
+				?>
 				<table class="table" cellpadding="1" cellspacing="1">
 					<thead>
                         <tr>
@@ -115,7 +120,7 @@
 							<th>Nomor Faktur</th>
 							<th>Nomor Surat Jalan</th>
                             <th>Nama Suplier</th>
-            	            <th>Tanggal Pembelian</th>
+            	            <th>Tanggal Penerimaan</th>
                             <th>Total Transaksi</th>
                         </tr>
                         </thead>

@@ -111,14 +111,21 @@
 				<hr>
 				<hr>
 				<center>
-					Data Transaksi
+					LAPORAN RETUR
 					
 				</center>
 				<div class="container">
+				<?php
+					if (isset($_GET['src'])){
+						echo "Tanggal : ";
+						echo date('d/m/Y', strtotime($_GET['src'])); 
+					}
+				?>
 				<table class="table" cellpadding="1" cellspacing="1">
 				<thead>
                                 <tr>
                                     <th>Nomor</th>
+									<th>Id Retur</th>
                                     <th>Tanggal</th>
                                     <th>Nama Suplier</th>
                                     <th>Total transaksi</th>

@@ -2,8 +2,8 @@
     // $id_user, $nama_user, $nomor_telepon, $password, $level
     class user{
         public function tampil(){
-            $koneksi = new koneksi;
-            $query = mysqli_query($koneksi->conn,"SELECT * FROM `user`");
+            $koneksi = new koneksi; // buat kelas koneksi
+            $query = mysqli_query($koneksi->conn,"SELECT * FROM `user`"); // ambil SQL data dari kelas koneksi menggunakan SQL Language
             if (mysqli_num_rows($query)>0) {
                 while ($row = mysqli_fetch_array($query)) {
                     $data[]= $row;

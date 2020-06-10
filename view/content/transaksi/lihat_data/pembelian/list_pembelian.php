@@ -1,7 +1,7 @@
     <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h2 mb-0 text-gray-800">
         <i class="fa fa-list" aria-hidden="true"></i>    
-            Laporan Pembelian
+            LAPORAN PEMBELIAN
         </h1>
     </div>
     <hr class ="sidebar-diver"></hr>
@@ -80,7 +80,7 @@
 <?php 
     if (isset($_POST['detail'])) {
         $id_order          = trim($_POST['id_order']);
-        $permintaan_barang->detil($id_order)?> 
+        $permintaan_barang->detail($id_order)?> 
         <div class="col">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"></h1>

@@ -39,7 +39,7 @@
                 echo "<div class='alert alert-success'><span class='fa fa-check'></span> Data transaksi berhasil dihapus</div>";
             }
         }
-        public function detil($id_order){
+        public function detail($id_order){
             $koneksi = new koneksi;
             $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` WHERE `id_order`= '$id_order'");
             $row = mysqli_fetch_array($query);
@@ -55,7 +55,7 @@
             $this->no_faktur = $row['nomor_faktur'];
             $this->tanggal_pelunasan = $row['tanggal_pelunasan'];
         }
-        public function tampil_detil_transaksi(){
+        public function tampil_detail_transaksi(){
             $koneksi = new koneksi;
             $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` join `detail_order` on  `order`.`id_order` = `detail_order`.`id_order`");
             if (mysqli_num_rows($query)>0) {

@@ -36,6 +36,7 @@
                                     <th>No Surat Jalan</th>
                                     <th>Nama Suplier</th>
                                     <th>Tanggal Pelunasan</th>
+                                    <th>Jatuh Tempol</th>
                                     <th>Total Transaksi</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
@@ -46,25 +47,23 @@
                                 <?php 
                                     if ($hutang->tampil()!=false) {
                                         $no = 1;
-                                        $bnyk_jth = 0;
                                         foreach ($hutang->tampil() as $key) {
                                             if ($key['status'] == 'Belum Lunas') {
                                                 # code...
-                                                $date = strtotime(date('Y-m-d', strtotime($key['tanggal_penerimaan']))); 
-                                                $Today= strtotime(date('Y-m-d'));
-                                                $beda_hari = $Today - $date;
-                                                $tempo_jth = floor($beda_hari/(60*60*24));
-                                                $rentang_waktu = $key['akhir pembayaran'];
+                                                $date = strtotime(date('Y-m-d', strtotime($key['tanggal_penerimaan']))); //mangambil tanggal penerimaan
+                                                $Today= strtotime(date('Y-m-d')); // mengambil hari ini
+                                                $beda_hari = $Today - $date; // hari ini diambil tanggal penerimaan, hasilnya detik
+                                                $tempo_jth = floor($beda_hari/(60*60*24)); // detik konversi ke hari
+                                                $rentang_waktu = $key['akhir pembayaran']; // hari jatuh tempo
                                                 if ($tempo_jth >= $rentang_waktu) {
                                                     $a = "<div class='alert alert-danger'><i class='fas fa-faw fa-exclamation-triangle'></i><span> Jatuh Tempo</span></div>";
-                                                    $bnyk_jth++;
                                                 }else {
                                                     if  ($rentang_waktu - $tempo_jth == 1) {
                                                         $a = "<div class='alert alert-danger'><i class='fas fa-faw fa-exclamation-triangle'></i><span> Jatuh Tempo Besok</span></div>";
                                                     }elseif ($rentang_waktu - $tempo_jth == 2) {
                                                         $a = "<div class='alert alert-warning'><i class='fas fa-faw fa-exclamation-triangle'></i><span> 2 Hari Lagi Jatuh Tempo</span></div>";
                                                     }elseif ($rentang_waktu - $tempo_jth == 3) {
-                                                        $a = "<div class='alert alert-warning'><i class='fas fa-faw fa-exclamation-triangle'></i><span> 3 Hari Lagi Jatuh Tempo</span></div>";
+                                                        $a = "<div class='alert alert-info'><i class='fas fa-faw fa-exclamation-triangle'></i><span> 3 Hari Lagi Jatuh Tempo</span></div>";
                                                     }else {
                                                         $a = "<div class='alert alert-success'><i class='fas fa-faw fa-check'></i><span> Belum Jatuh Tempo</span></div>";
                                                     }
@@ -82,6 +81,7 @@
                                                     <td><?php if ($key['status'] == "Belum Lunas") {
                                                         echo "Proses verifikasi";
                                                     } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
+                                                    <td><?php echo $key['akhir pembayaran'];?> Hari</td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                                                     <td><?php echo $key['status']; ?></td>
                                                     <td><?php echo $a; ?></td>

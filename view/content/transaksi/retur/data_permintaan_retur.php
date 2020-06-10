@@ -5,8 +5,7 @@
         </h1>
     </div>
 <div class="col">
-
-      <div class="row">
+<div class="row">
         <div class="col">
           <div class="card shadow mb-4 border-left-dark">
             <div class="card-header py-3">
@@ -67,6 +66,7 @@
             </div>
           </div>
         </div>
+
 <?php 
     if (isset($_POST['detail'])) {
         $id_retur          = trim($_POST['id_retur']); 

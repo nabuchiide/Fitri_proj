@@ -63,8 +63,9 @@
     <hr class ="sidebar-diver"></hr>
     <!-- data tabel -->
     <div class="col">
-      <div class="row justify-content-satart mb-4 align-items-center">
-          <div class="col">
+      <div class="row justify-content-center mb-4 align-items-center">
+	  <div class="col-xl-1"></div>
+          <div class="col-lg-5">
               <div class="card shadow mb-4 border-left-dark" style="width: 35rem;  height: 29rem;">
                   <div class="card-body">
                       <h5 class="card-title">Tambah Data Barang</h5>
@@ -143,7 +144,7 @@
                   </div>
                 </div>
           </div>
-          <div class="col">
+          <div class="col-lg-4">
               <div class="card shadow mb-4 border-left-dark" style="width: 25rem; height: 13rem;">
                   <div class="card-body">
                       <h5 class="card-title">Tambah Jenis Barang</h5>

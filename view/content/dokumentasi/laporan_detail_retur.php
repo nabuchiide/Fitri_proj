@@ -2,7 +2,7 @@
    include_once '../../../control/control.php';
 	$id_retur = $_GET['id'];
         $retur->detail($id_retur);
-        $permintaan_barang->detil($retur->id_order);
+        $permintaan_barang->detail($retur->id_order);
    ?>
 <html>
 	<head>
@@ -159,7 +159,7 @@
                           foreach ($retur_detail->tampil_retur($id_retur) as $key){   ?>
                           <tr>
                             <form action="" method="post">
-                            <td><?php echo $no++; ?><input type="hidden" name="detil_ret_id" value="<?php echo $key['detil_ret_id'] ;?>"></td>
+                            <td><?php echo $no++; ?><input type="hidden" name="detail_ret_id" value="<?php echo $keydetail_ret_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
                             <td><?php echo $key['jumlah'];?></td>
                             <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>

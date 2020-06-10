@@ -1,4 +1,8 @@
 <?php 
+	$id_order = $_SESSION['Id_order'];
+    $id_retur = $_SESSION['Id_ret'];
+	$permintaan_barang->detail($id_order);
+	$stat = $permintaan_barang->status;
     if (!isset($_SESSION['Id_order'])) {
       echo "<meta http-equiv='refresh' content='1;url=index.php?p=permintaan_retur'>";
     }
@@ -15,20 +19,20 @@
     
     if (isset($_POST['ordered'])) {
       $tanggal               = trim($_POST['hari_ini']);
-      $id_order = $_SESSION['Id_order'];
-      $id_retur = $_SESSION['Id_ret'];
       $status   = "Retur";
       $_SESSION['date']   = $tanggal;
       $total_transaksi = $_SESSION['total_belanja'];
-      $permintaan_barang->edit_total_transaksi_retur($id_order, $total_transaksi);
+	  if ($stat != "Lunas"){
+		$permintaan_barang->edit_total_transaksi_retur($id_order, $total_transaksi);  
+	  }
       $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
       foreach ($_SESSION['cart'] as $keys => $values) {
         $nama_barang = $values["item_nama"];
         $harga_transaksi = $values["item_harga"];
         $jumlah_barang = $values["item_jumlah"];
-        $detil_cart_id = $values["item_id"];
+        $detail_cart_id = $values["item_id"];
         $barang->edit_barang_retur($nama_barang, $jumlah_barang);
-        $detail_permintaan->edit_jumlah_ret($detil_cart_id,  $jumlah_barang);
+        $detail_permintaan->edit_jumlah_ret($detail_cart_id,  $jumlah_barang);
         $retur_detail->simpan($nama_barang, $harga_transaksi, $id_retur, $jumlah_barang);
       }
       echo "<div class='alert alert-success'><span class='fa fa-check'> Data transaksi berhasil disimpan</span></div>";
@@ -99,7 +103,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                            <th colspan="4" align="right">Total Transaksi</th>
+                            <th colspan="3" align="right">Total Transaksi</th>
                             <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>

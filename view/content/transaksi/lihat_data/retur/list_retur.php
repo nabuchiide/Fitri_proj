@@ -33,7 +33,7 @@
                         <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Id Order</th>
+                                    <th>Id Retur</th>
                                     <th>Nama Suplier</th>
                                     <th>Tanggal</th>
                                     <th>Total Transaksi</th>
@@ -52,7 +52,7 @@
                                                     <td><?php echo $no++; ?>
                                                         <input type="hidden" value="<?php echo $key['id_retur']; ?>" name="id_retur">
                                                     </td>
-                                                    <td><?php echo $key['id_order'];?></td>
+                                                    <td><?php echo $key['id_retur'];?></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
                                                     <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
@@ -84,7 +84,7 @@
     if (isset($_POST['detail'])) {
         $id_retur          = trim($_POST['id_retur']);
         $retur->detail($id_retur);
-        $permintaan_barang->detil($retur->id_order);
+        $permintaan_barang->detail($retur->id_order);
         ?>
    <div class="col">
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -139,17 +139,17 @@
                           foreach ($retur_detail->tampil_retur($id_retur) as $key){   ?>
                           <tr>
                             <form action="" method="post">
-                            <td><?php echo $no++; ?><input type="hidden" name="detil_ret_id" value="<?php echo $key['detil_ret_id'] ;?>"></td>
+                            <td><?php echo $no++; ?><input type="hidden" name="detail_ret_id" value="<?php echo $key['detail_ret_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
-							<td><?php echo $key['jumlah'];?></td>
+							              <td><?php echo $key['jumlah'];?></td>
                             <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
                             <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
-                      </tbody>
                       <?php } 
                     } ?>
+                    </tbody>
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right">Total transaksi</th>

@@ -1,17 +1,17 @@
 <?php 
   if (isset($_POST['order'])) {
-      $detil_cart_id = $_POST['id_bar'];
-      echo $detil_cart_id;
+      $detail_cart_id = $_POST['id_bar'];
+      //echo $detail_cart_id;
       $jumlah     = trim($_POST['jumlah']);
       $jumlah_crt = $jumlah;
       // 
-      foreach($detail_permintaan->tampil_detail_order($detil_cart_id) as $key){
+      foreach($detail_permintaan->tampil_detail_order($detail_cart_id) as $key){
       if (isset($_SESSION["cart"])) {
         $item_array_id = array_column($_SESSION["cart"], "item_id");
-          if (!in_array($detil_cart_id, $item_array_id)) {
+          if (!in_array($detail_cart_id, $item_array_id)) {
             $count = count($_SESSION['cart']);
             $item_array= array(
-              'item_id' =>  $key['detil_cart_id'],
+              'item_id' =>  $key['detail_cart_id'],
               'item_nama' => $key['nama_barang'],
               'item_harga' => $key['harga_transaksi'],
               'item_jumlah' => $jumlah_crt,
@@ -24,7 +24,7 @@
               }
           }else {
             $item_array= array(
-              'item_id' =>  $key['detil_cart_id'],
+              'item_id' =>  $key['detail_cart_id'],
               'item_nama' => $key['nama_barang'],
               'item_harga' => $key['harga_transaksi'],
               'item_jumlah' => $jumlah_crt,
@@ -57,7 +57,7 @@
     <hr class ="sidebar-diver"></hr>
 
     <div class="row justify-content-center mb-4 align-items-center">
-        <div class="col-xl-1"></div>
+        <div class="col-xl-2"></div>
         <div class="col-lg-7">
             <div class="card shadow mb-4 border-left-dark " style="width: 35rem;">
                 <div class="card-body">
@@ -150,7 +150,7 @@
                               ?>
                             <tr>
                             <form action="" method="post">
-                            <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $key['detil_cart_id']; ?>" name="id_bar"></td>
+                            <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $key['detail_cart_id']; ?>" name="id_bar"></td>
                             <td><?php echo $key['nama_barang'] ;?></td>
                             <td>
                             <input type="number" max ="<?php echo $key['jumlah']?>" class="form-control"  name="jumlah" placeholder="Harus Kurang dari -<?php echo $key['jumlah']?>"></td>

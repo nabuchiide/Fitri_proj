@@ -1,6 +1,6 @@
 <?php 
   $id_order = $_GET['id'];
-  $permintaan_barang->detil($id_order);
+  $permintaan_barang->detail($id_order);
   $stat= $permintaan_barang->status;
   
   if (isset($_POST['kembali'])) {
@@ -75,7 +75,7 @@
                           foreach ($detail_permintaan->tampil_order($id_order) as $key){   ?>
                           <tr>
                             <form action="" method="post">
-                            <td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detil_cart_id'] ;?>"></td>
+                            <td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detail_cart_id'] ;?>"></td>
                             <td><?php echo $key['nama_barang']; ?></td>
                             <td><?php echo $key['jumlah'];?></td>
                             <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
@@ -83,9 +83,9 @@
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
-                      </tbody>
                       <?php } 
                     } 
+					echo "</tbody>";
                     $_SESSION['total_transaksi'] = $total;
                     ?>
                       <tfoot>

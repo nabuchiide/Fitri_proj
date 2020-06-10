@@ -1,7 +1,7 @@
 <?php 
   
   $id_order = $_GET['id'];
-  $permintaan_barang->detil($id_order);
+  $permintaan_barang->detail($id_order);
       if (isset($_POST['simpan'])) {
         // mengambil data dari form
         $id_pembayaran      = trim($_POST['Id_pembayaran']);
@@ -9,7 +9,7 @@
         $tempo              = trim($_POST['tempo']);
         $status             = "Porses Pelunasan";
         $status_pembayaran  = "Belum Lunas";
-        $permintaan_barang->detil($id_order);
+        $permintaan_barang->detail($id_order);
         $nama_suplier = $permintaan_barang->nama_suplier;
         $total_hutang = $permintaan_barang->total_transaksi;
         // echo $id_pembayaran."<br>".$id_order."<br>".$tempo."<br>".$status."<br>".$status_pembayaran."<br>".$nama_suplier."<br>". $total_hutang;
@@ -130,11 +130,11 @@
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
-                      </tbody>
                       
                       <?php } 
                     $_SESSION['total_hutang'] = $total;
-                    } ?>
+                  } ?>
+                  </tbody>
                       <tfoot>
                         <tr>
                             <th colspan="4" align="right">Total Transaksi</th>

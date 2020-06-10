@@ -9,14 +9,16 @@
       <div class ="col">
         <div class="row justify-content-center mb-4 align-items-center">
             <div class="col">
-              <div class="card shadow mb-4 border-left-secondary">
+              <div class="card shadow mb-4 border-left-dark flex-fill" style="height: 32rem;">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
                     <h6 class="card-subtitle mb-2 text-muted"></h6>
                     <p class="card-text">
                     <center>
+						<br>
                         <img src="../atribut/img/harapan2.jpg" alt="" width="270" style="padding-hanging:30">
                         <h4>
+						<br>
                         <center>PT. HAS PUTRA HARAPAN</center>
                         </h4>
                         <h5>

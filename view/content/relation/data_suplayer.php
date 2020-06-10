@@ -21,7 +21,7 @@
     <hr class ="sidebar-diver"></hr>
 
     <div class="row justify-content-center mb-4 align-items-center">
-        <div class="col-xl-1"></div>
+        <div class="col-xl-2"></div>
         <div class="col-lg-7">
             <div class="card shadow mb-4 border-left-dark" style="width: 35rem;">
                 <div class="card-body">

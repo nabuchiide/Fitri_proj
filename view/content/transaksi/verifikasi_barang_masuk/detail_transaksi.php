@@ -1,6 +1,6 @@
 <?php 
   $id_order = $_GET['id'];
-  $permintaan_barang->detil($id_order);
+  $permintaan_barang->detail($id_order);
   $stat= $permintaan_barang->status;
  
  if (isset($_POST['beli'])) {
@@ -31,7 +31,7 @@
   }
 
   if (isset($_POST['edit'])) {
-    $detil_cart_id = trim($_POST['id_detail_cart']);
+    $detail_cart_id = trim($_POST['id_detail_cart']);
     $jumlah = trim(ucwords($_POST['jumlah']));
 	if(!isset($_SESSION['no_surat_jalan'])){
 		$_SESSION['no_surat_jalan'] = $_POST['no_surat_jalan'];
@@ -40,14 +40,14 @@
 	}elseif(!isset($_SESSION['tanggal_penerimaan'])){
 		$_SESSION['tanggal_penerimaan'] = $_POST['tanggal_penerimaan'];
 	}else{
-		$detail_permintaan->edt_jml($detil_cart_id, $jumlah);
+		$detail_permintaan->edt_jml($detail_cart_id, $jumlah);
 	}
     echo " <meta http-equiv='refresh' content='1;url=index.php?p=verifikasi_detail_m&id=".$id_order."'>";
     
   }
   if (isset($_POST['hapus'])) {
-    $detil_cart_id = trim($_POST['id_detail_cart']);
-    $detail_permintaan->hapus($detil_cart_id);
+    $detail_cart_id = trim($_POST['id_detail_cart']);
+    $detail_permintaan->hapus($detail_cart_id);
     echo " <meta http-equiv='refresh' content='1;url=index.php?p=verifikasi_detail_m&id=".$id_order."'>";
   }
   if (isset($_POST['check'])){
@@ -91,12 +91,12 @@
                   <tr>
                     <td>No Faktur</td>
                     <td>:</td>
-                    <td><input type="text" class="form-control" name="no_faktur" value="<?php if(!isset($_SESSION['no_faktur'])){echo $permintaan_barang->no_faktur;}else{echo $_SESSION['no_faktur'];}?>" required></td>
+                    <td><input type="text" class="form-control" name="no_faktur" value="<?php if(!isset($_SESSION['no_faktur'])){echo $permintaan_barang->no_faktur;}else{echo $_SESSION['no_faktur'];}?>" required <?php if($permintaan_barang->status == "barang masuk") {echo "disabled";}?> ></td>
                   </tr>
                   <tr>
                     <td>No Surat Jalan</td>
                     <td>:</td>
-                    <td><input type="text" class="form-control" name="no_surat_jalan" value="<?php if(!isset($_SESSION['no_surat_jalan'])){ echo $permintaan_barang->no_surat_jalan; }else{echo $_SESSION['no_surat_jalan'];}?>" required></td>
+                    <td><input type="text" class="form-control" name="no_surat_jalan" value="<?php if(!isset($_SESSION['no_surat_jalan'])){ echo $permintaan_barang->no_surat_jalan; }else{echo $_SESSION['no_surat_jalan'];}?>" required <?php if($permintaan_barang->status == "barang masuk") {echo "disabled";}?> ></td>
                   </tr>
                   <tr>
                     <td>Tanggal Pembelian </td>
@@ -143,7 +143,7 @@
                           foreach ($detail_permintaan->tampil_order($id_order) as $key){   ?>
 							<tr>
 								<form action="" method="post">
-								<td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detil_cart_id'] ;?>"></td>
+								<td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detail_cart_id'] ;?>"></td>
 								<td><?php echo $key['nama_barang']; ?></td>
 								<td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
 								<td><input type="text" class="form-control" name="jumlah" id="" value="<?php echo $key['jumlah'];?>"></td>
@@ -161,9 +161,9 @@
 								</form>
 							</tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
-                      </tbody>
                       <?php } 
                     } 
+                   echo "</tbody>";
                     $_SESSION['total_transaksi'] = $total;
                     ?>
                       <tfoot>

@@ -18,14 +18,15 @@
 <div class="d-sm-flex align-items-center justify-content-center mb-4">
         <h1 class="h2 mb-0 text-gray-800">
         <i class="fa fa-handshake" aria-hidden="true"></i>    
-            Suplier
+            Katalog
         </h1>
     </div>
     <hr class ="sidebar-diver"></hr>
       <div class ="col">
         <div class="row justify-content-center mb-4 align-items-center">
-            <div class="col">
-              <div class="card shadow mb-4 border-left-dark">
+            <div class="col-xl-2"></div>
+            <div class="col-lg-7">
+              <div class="card shadow mb-4 border-left-dark"style="width: 35rem;">
                 <div class="card-body">
                     <h5 class="card-title">Edit Data Katalog</h5>
                     <h6 class="card-subtitle mb-2 text-muted"></h6>

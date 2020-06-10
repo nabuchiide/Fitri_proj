@@ -17,6 +17,7 @@
                     <td><?php echo $no++; ?>
                     <input type="hidden" value="<?php echo $key['id_retur']; ?>" name="id_retur">
                     </td>
+                    <td><?php echo $key['id_retur']; ?></td>
                     <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
                     <td><?php echo $key['nama_suplier']; ?></td>
                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
@@ -112,7 +113,7 @@
                     <td><?php echo $key['nomor_faktur']?></td>
                     <td><?php echo $key['no_surat_jalan']?></td>
             	    <td><?php echo $key['nama_suplier']; ?></td>
-                    <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
+                    <td><?php if($empty_date == $key['tanggal_penerimaan']){echo "Proses Pembayaran";}else{echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); }?></td>
                     <td>Rp <?php echo number_format($key['total_transaksi']);?></td>
                     </form>
                 </tr> <?php

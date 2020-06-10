@@ -23,8 +23,9 @@
     <hr class ="sidebar-diver"></hr>
       <div class ="col">
         <div class="row justify-content-center mb-4 align-items-center">
-            <div class="col">
-              <div class="card shadow mb-4 border-left-secondary">
+		<div class="col-xl-2"></div>
+            <div class="col-lg-7">
+              <div class="card shadow mb-4 border-left-dark" style="width: 35rem;">
                 <div class="card-body">
                     <h5 class="card-title">Edit Data User</h5>
                     <h6 class="card-subtitle mb-2 text-muted"></h6>

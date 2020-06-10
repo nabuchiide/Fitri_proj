@@ -33,8 +33,9 @@
                 ?>
           <div class ="col">
             <div class="row justify-content-satart mb-4 align-items-center">
-              <div class="col">
-                  <div class="card shadow mb-4 border-left-dark">
+			<div class="col-xl-3"></div>
+              <div class="col-lg-7">
+                  <div class="card shadow mb-4 border-left-dark"style="width: 45rem;">
                       <div class="card-body">
                           <h5 class="card-title">Edit Data Barang</h5>
                           <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -105,6 +106,7 @@
                       </div>
                   </div>
               </div>
+			  </div>
         <?php } ?>
             
             <?php 
@@ -131,8 +133,9 @@
                 ?>
           <div class ="col">
             <div class="row justify-content-satart mb-4 align-items-center">
-              <div class="col">
-                <div class="card shadow mb-4 border-left-dark">
+			<div class="col-xl-4"></div>
+              <div class="col-lg-7">
+                <div class="card shadow mb-4 border-left-dark" style ="width: 35rem;">
                   <div class="card-body">
                       <h5 class="card-title">Edit Jenis Barang</h5>
                       <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -194,8 +197,9 @@
                     ?>
           <div class ="col">
             <div class="row justify-content-satart mb-4 align-items-center">
-                <div class="col">
-                  <div class="card shadow mb-4 border-left-dark">
+              <div class="col-xl-4"></div>
+              <div class="col-lg-7">
+                <div class="card shadow mb-4 border-left-dark" style ="width: 35rem;">
                       <div class="card-body">
                               <h5 class="card-title ">Edit Satuan Barang</h5>
                               <h6 class="card-subtitle mb-2 text-muted"></h6>

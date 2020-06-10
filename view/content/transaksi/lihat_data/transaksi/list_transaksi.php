@@ -87,27 +87,39 @@
                                         <th>Id Order</th>
                                         <th>Nama Barang</th>
                                         <th>Jumlah</th>
+										<th>Harga</th>
+										<th>Sub Harga </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php 
                                     if ($detail_permintaan->tampil_order($id_order)!=false) {
                                         $no = 1;
+                                        $total=0;
                                         foreach ($detail_permintaan->tampil_order($id_order) as $key) {
                                         ?>
                                         <tr>
                                             <form action="" method="post">
                                             <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
                                             <td><?php echo $key['id_order']?></td>
-                                            <td><?php echo $key['nama_barang']; ?></td>
+											<td><?php echo $key['nama_barang']; ?></td>
                                             <td><?php echo $key['jumlah']; ?></td>
+                                            <td><?php echo number_format($key['harga_transaksi'],2);?></td>
+                                            <td>Rp <?php echo number_format($key['harga_transaksi'] * $key['jumlah'], 2);?></td>
                                             </form>
                                         </tr>
+                                        <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
                                         <?php
                                         }
                                     } ?>
                                 </tbody>
-                                        
+                                <tfoot>
+                                <tr>
+                                    <th colspan = "5" align="right">Total transaksi</th>
+                                    <th  align="left" >Rp <?php echo number_format($total,2); ?></th>
+                                </tr>
+                                </tfoot>
+
                             </table>
                             <form action="" method="post">
                             <button type="submit" name="refrehs" class="btn btn-sm btn-link btn-custom">

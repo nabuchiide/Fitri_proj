@@ -72,8 +72,6 @@
                     include_once "../view/content/transaksi/order/request_barang.php";
                 }elseif ($repons =='order') {
                     include_once "../view/content/transaksi/order/order_barang.php";
-                }elseif ($repons == 'edt_order') {
-                    include_once "../view/content/transaksi/order/edit_order.php";
                 }
                 //---------------------------------------
                    //</>verifikasi

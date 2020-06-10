@@ -3,7 +3,7 @@
   $id_pembayaran = $_GET['id'];
   $pembayaran->detail($id_pembayaran);
   $id_order = $pembayaran->id_order;
-  $permintaan_barang->detil($id_order);
+  $permintaan_barang->detail($id_order);
   $status = $permintaan_barang->status;
       if (isset($_POST['lunas'])) {
         // mengambil data dari form
@@ -12,7 +12,7 @@
         $tempo              = trim($_POST['tempo']);
         $status             = "Lunas";
         $status_pembayaran  = "Lunas";
-        $permintaan_barang->detil($id_order);
+        $permintaan_barang->detail($id_order);
         $nama_suplier = $permintaan_barang->nama_suplier;
         $total_hutang = $permintaan_barang->total_transaksi;
         $tanggal_pelunasan = $_POST['tanggal_pelunasan'];
