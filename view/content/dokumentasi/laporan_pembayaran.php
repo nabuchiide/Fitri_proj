@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -113,6 +113,7 @@
 						echo date('d/m/Y', strtotime($_GET['src'])); 
 					}
 				?>
+				<center>
 				<table class="table" cellpadding="1" cellspacing="1">
 					<thead>
                         <tr>
@@ -127,10 +128,10 @@
                         <tbody>
                             <?php
 							$laporan->laporan_pembayaran();
-								?>
+							?>
                         </tbody>
                 </table>
-				
+				</center>
 				<div class="footer-content">
 						
 					<div>Mengetahui,</div>

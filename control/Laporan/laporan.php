@@ -87,8 +87,9 @@
                     <td><?php echo $no++; ?> <input type="hidden" value="<?php echo $key['id_pembayaran']; ?>" name="id_pembayaran"> </td>
                     <td><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
                     <td><?php echo $key['nomor_faktur']?></td>
-                    <td><?php if ($key['status'] == "Belum Lunas") { echo "Proses verifikasi"; } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
                     <td><?php echo $key['nama_suplier']; ?></td>
+                    <td><?php if ($key['status'] == "Belum Lunas") { echo "Proses verifikasi"; } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
+                    <td><?php echo $key['akhir pembayaran']?></td>
                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                     <td><?php echo $key['status']; ?></td>
                     <td><?php echo $a; ?></td>
@@ -97,12 +98,13 @@
         }
         public function laporan_pembayaran(){
             $status = "dipesan";
+            $status1 = "dibeli";
 			$koneksi = new koneksi;
             if (isset($_GET['src'])) {
                 $src = $_GET['src'];
-                $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `tanggal_penerimaan` = '$src' AND  `status`<>'$status'");
+                $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `tanggal_penerimaan` = '$src' AND  `status`<>'$status' AND `status`<>'$status1'");
             }else {
-				$query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status'");
+				$query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `status`<>'$status1'");
             }
             $no = 1;
             $empty_date = '0000-00-00';

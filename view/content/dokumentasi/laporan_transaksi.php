@@ -43,7 +43,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -113,7 +113,6 @@
 				<center>
 					Data Transaksi
 					
-				</center>
 				<div class="container">
 				<table class="table" cellpadding="1" cellspacing="1">
                             <thead>
@@ -131,10 +130,10 @@
                             <tbody>
                                 <?php 
                                     if ($permintaan_barang->tampil()!=false) {
-                                        $no = 1;
+										$no = 1;
                                         $empty_date = '0000-00-00';
                                         foreach ($permintaan_barang->tampil() as $key) {
-                                            ?>
+											?>
                                             <tr>
                                                 <form action="" method="post">
                                                     <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
@@ -155,6 +154,7 @@
                             </tbody>
                            
                         </table>
+						</center>
 				
 				<div class="footer-content">
 						

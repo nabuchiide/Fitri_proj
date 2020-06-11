@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -105,7 +105,6 @@
 				<hr>
 				<center>
 					Laporan Hutang Dagang
-				</center>
 				<div class="container">
 				<div class="card-body" >
                     <div class="table-responsive">
@@ -128,7 +127,7 @@
 								}
                                 $no = 1;
 								while($key=mysqli_fetch_array($query)){
-                                ?> 
+									?> 
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $key['nama_suplier']; ?></td>
@@ -136,12 +135,13 @@
                             </tr>
                                 <?php
                                         }
-                                    
-                                    ?>
+										
+										?>
                             </tbody>
                            
                         </table>
                     </div>
+					</center>
 					<div class="footer-content">
 						
 						<div>Mengetahui,</div>

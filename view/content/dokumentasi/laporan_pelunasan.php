@@ -43,7 +43,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:90%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -113,7 +113,6 @@
 				<center>
 				Laporan Pelunasan
 					
-				</center>
 				<div class="container">
 				<table class="table" cellpadding="1" cellspacing="1">
 				<thead>
@@ -121,8 +120,9 @@
                                     <th>No</th>
                                     <th>No Surat Jalan</th>
 									<th>No Faktur</th>
-                                    <th>Tanggal Pelunasan</th>
                                     <th>Nama Suplier</th>
+                                    <th>Tanggal Pelunasan</th>
+									<th>Jatuh Tempo</th>
                                     <th>Hutang</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
@@ -131,10 +131,11 @@
                             <tbody>
                                 <?php 
 										$laporan->laporan_pelunasan();
-                                    ?>
+										?>
                             </tbody>
                         </table>
                     </div>
+					</center>
             </div>
               </div>
             </div>

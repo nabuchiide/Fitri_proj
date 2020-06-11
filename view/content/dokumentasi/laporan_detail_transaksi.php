@@ -40,7 +40,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -128,7 +128,7 @@
 				<div class="container">
 				<div class="row">
 				<p>
-                    <table width = "50%">
+                    <table width = "40%">
                     <tr>
                         <td>Id Order</td>
                         <td>:</td>
@@ -179,7 +179,7 @@
                       <tbody>
                       <?php 
                       if ($detail_permintaan->tampil_order($id_order)!=false) {
-                          $no = 1;
+						  $no = 1;
                           $total = 0;
                           $total_transaksi = 0;
                           foreach ($detail_permintaan->tampil_order($id_order) as $key){   ?>

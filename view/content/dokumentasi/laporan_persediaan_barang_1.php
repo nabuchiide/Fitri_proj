@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;

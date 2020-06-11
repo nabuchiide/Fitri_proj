@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -106,14 +106,13 @@
 				<center>
 					LAPORAN PEMBELIAN
 					
-				</center>
 				<div class="container">
 				<?php
 					if (isset($_GET['src'])){
 						echo "Tanggal : ";
 						echo date('d/m/Y', strtotime($_GET['src'])); 
 					}
-				?>
+					?>
 				<table class="table" cellpadding="1" cellspacing="1">
 					<thead>
                         <tr>
@@ -126,10 +125,10 @@
                         <tbody>
                             <?php
 							$laporan->laporan_pembelian();
-								?>
+							?>
                         </tbody>
                 </table>
-				
+				</center>
 				<div class="footer-content">
 						
 					<div>Mengetahui,</div>
