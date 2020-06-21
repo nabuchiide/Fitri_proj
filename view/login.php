@@ -50,8 +50,8 @@
                 <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1> <i class="fas fa-fw fa-user-circle fa-lg"></i> </h1>
-                    <h1 class="h3 text-gray-900 mb-4 font-weight">- Login -</h1>
+                    <img src="../atribut/img/harapan1.png" alt="" srcset="">
+                    <h1 class="h4 text-gray-900 mb-4 font-weight">- PEMBELIAN -</h1>
                   </div>
                   <hr>
                   <form class="user" method="post">
