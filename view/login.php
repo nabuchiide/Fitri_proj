@@ -51,7 +51,7 @@
                 <div class="p-5">
                   <div class="text-center">
                     <img src="../atribut/img/harapan1.png" alt="" srcset="">
-                    <h1 class="h4 text-gray-900 mb-4 font-weight">- PEMBELIAN -</h1>
+                    <h1 class="h4 text-gray-900 mb-4 font-weight">Sistem Informasi Pembelian Barang Dagang Secara Kredit</h1>
                   </div>
                   <hr>
                   <form class="user" method="post">
