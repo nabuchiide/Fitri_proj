@@ -41,14 +41,22 @@
                             <?php 
                             if ($hutang->tampil_per_suplier()!=false) {
                                 $no = 1;
+                                $jumlah = 0;
                                 foreach ($hutang->tampil_per_suplier() as $key) {?> 
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $key['nama_suplier']; ?></td>
                                     <td>Rp <?php echo number_format($key['total_hutang'],2); ?></td>
                                 </tr>
-                                <?php } } ?>
+                                <?php
+                                $jumlah = $jumlah + $key['total_hutang']; 
+                                } 
+                            } ?>
                             </tbody>
+                            <tfoot>
+                                <td colspan="2"><b>Total</b></td>
+                                <td colspan="4"><b>Rp <?php echo number_format($jumlah,2); ?></b></td>
+                            </tfoot>
                         </table>
                     </div>
             </div>

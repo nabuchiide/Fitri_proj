@@ -1,11 +1,13 @@
 <?php 
 	$id_order = $_SESSION['Id_order'];
-    $id_retur = $_SESSION['Id_ret'];
+  $id_retur = $_SESSION['Id_ret'];
 	$permintaan_barang->detail($id_order);
-	$stat = $permintaan_barang->status;
+  $stat = $permintaan_barang->status;
+  $nama_suplier = $permintaan_barang->nama_suplier;
     if (!isset($_SESSION['Id_order'])) {
       echo "<meta http-equiv='refresh' content='1;url=index.php?p=permintaan_retur'>";
     }
+
     if (isset($_GET['action'])) {
       if ($_GET['action'] == 'hapus') {
         foreach ($_SESSION['cart'] as $keys => $value) {
@@ -18,29 +20,42 @@
     }
     
     if (isset($_POST['ordered'])) {
-      $tanggal               = trim($_POST['hari_ini']);
-      $status   = "Retur";
-      $_SESSION['date']   = $tanggal;
-      $total_transaksi = $_SESSION['total_belanja'];
-	  if ($stat != "Lunas"){
-		$permintaan_barang->edit_total_transaksi_retur($id_order, $total_transaksi);  
-	  }
-      $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
-      foreach ($_SESSION['cart'] as $keys => $values) {
-        $nama_barang = $values["item_nama"];
-        $harga_transaksi = $values["item_harga"];
-        $jumlah_barang = $values["item_jumlah"];
-        $detail_cart_id = $values["item_id"];
-        $barang->edit_barang_retur($nama_barang, $jumlah_barang);
-        $detail_permintaan->edit_jumlah_ret($detail_cart_id,  $jumlah_barang);
-        $retur_detail->simpan($nama_barang, $harga_transaksi, $id_retur, $jumlah_barang);
-      }
-      echo "<div class='alert alert-success'><span class='fa fa-check'> Data transaksi berhasil disimpan</span></div>";
-      unset($_SESSION['Id_ret']);
-      unset($_SESSION['id_order']);
-      unset($_SESSION['date']);
-      unset($_SESSION['total_belanja']);
-      unset($_SESSION['cart']);
+        $tanggal               = trim($_POST['hari_ini']);
+        $status   = "Retur";
+        $_SESSION['date']   = $tanggal;
+        $total_transaksi = $_SESSION['total_belanja'];
+        if ($stat != "Lunas"){
+        $permintaan_barang->edit_total_transaksi_retur($id_order, $total_transaksi);
+        $hutang-> kurang_hutang($nama_suplier, $total_transaksi);  
+        }
+        $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
+        foreach ($_SESSION['cart'] as $keys => $values) {
+          $nama_barang = $values["item_nama"];
+          $harga_transaksi = $values["item_harga"];
+          $jumlah_barang = $values["item_jumlah"];
+          $detail_cart_id = $values["item_id"];
+          $barang->edit_barang_retur($nama_barang, $jumlah_barang);
+          $detail_permintaan->edit_jumlah_ret($detail_cart_id,  $jumlah_barang);
+          $retur_detail->simpan($nama_barang, $harga_transaksi, $id_retur, $jumlah_barang);
+        }
+        echo "<div class='alert alert-success'><span class='fa fa-check'> Data transaksi berhasil disimpan</span></div>";
+        unset($_SESSION['Id_ret']);
+        unset($_SESSION['id_order']);
+        unset($_SESSION['date']);
+        unset($_SESSION['total_belanja']);
+        unset($_SESSION['cart']);
+    }
+
+    if (isset($_POST['edit'])) {
+      $jumlah     = trim($_POST['jumlah']);
+      $id_barang = trim($_POST['id_bar']);
+      foreach ($_SESSION['cart'] as $keys => $value) {
+        if ($value['item_id']== $id_barang) {
+          $_SESSION['cart'][$keys]['item_jumlah'] = $jumlah;
+          echo "<div class='alert alert-success'><span class='fa fa-check'> Jumlah Item Barang Berhasil diperbaharui</span></div>";
+          echo "<meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
+            }
+        }
     }
     ?>
     <div class="col">
@@ -154,16 +169,6 @@
         $_SESSION['date']   = $tanggal;
         echo " <meta http-equiv='refresh' content='1;url=index.php?p=permintaan_retur'>";
       }
-      if (isset($_POST['edit'])) {
-        $jumlah     = trim($_POST['jumlah']);
-        $id_barang = trim($_POST['id_bar']);
-        foreach ($_SESSION['cart'] as $keys => $value) {
-          if ($value['item_id']== $id_barang) {
-            $_SESSION['cart'][$keys]['item_jumlah'] = $jumlah;
-			echo "<div class='alert alert-success'><span class='fa fa-check'> Jumlah Item Barang Berhasil diperbaharui</span></div>";
-            echo "<meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
-             }
-        }
-    }
+      
 
       ?>

@@ -10,6 +10,8 @@
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"  method="post">
                 <div class="input-group">
                     <input type="date" class="form-control bg-light border-0 small" name="car">
+                    <label for="">    Sampai Tanggal    </label>
+                    <input type="date" class="form-control bg-light border-0 small" name="car1">
                     <div class="input-group-append">
                     <button class="btn btn-primary" type="submit" name="cari">
                         <i class="fas fa-print fa-sm"></i>
@@ -181,6 +183,7 @@
     }
     if (isset($_POST['cari'])) {
       $cari = trim(ucwords($_POST['car']));
-      echo " <meta http-equiv='refresh' content='1;url=content/dokumentasi/laporan_retur.php?src=".$cari."'>";
+      $cari1 = trim(ucwords($_POST['car1']));
+      echo " <meta http-equiv='refresh' content='1;url=content/dokumentasi/laporan_retur.php?src=".$cari."&src1=".$cari1."'>";
     }
     ?>

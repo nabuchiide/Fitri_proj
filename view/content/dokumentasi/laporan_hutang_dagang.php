@@ -54,7 +54,7 @@
 			}
 			
 			.table tbody tr td{
-				border:1px solid #ddd;
+				/* border:1px solid #ddd; */
 				text-align:left;
 			}
 			
@@ -76,7 +76,10 @@
 		</style>
 	</head>
 	<body onload="window.print()">
-
+	<center>
+		<table class = "table">
+			<tr>
+				<td>
 		<div class="header">
 			<table style="width:100%">
 				<tr>
@@ -104,14 +107,14 @@
 				<hr>
 				<hr>
 				<center>
-					Laporan Hutang Dagang
+				LAPORAN HUTANG DAGANG
 				<div class="container">
 				<div class="card-body" >
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" width="100%" cellspacing="0" id="dataTable1">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th style="width:10%;">No</th>
                                     <th>Nama Suplier</th>
                                     <th>Hutang Dagang</th>
                                 </tr>
@@ -125,39 +128,54 @@
 								}else{
 									$query = mysqli_query($koneksi->conn,"SELECT * FROM `hutang` join `suplier` on `suplier`.`nama_suplier` = `hutang`.`nama_suplier` WHERE `total_hutang`>0");
 								}
-                                $no = 1;
+								$no = 1;
+								$jumlah=0;
 								while($key=mysqli_fetch_array($query)){
-									?> 
-                            <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?php echo $key['nama_suplier']; ?></td>
-                                <td>Rp <?php echo number_format($key['total_hutang'],2); ?></td>
-                            </tr>
-                                <?php
+										?> 
+								<tr  style = "border:1px solid #ddd;" >
+									<td  style = "border:1px solid #ddd;" ><?php echo $no++; ?></td>
+									<td  style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+									<td  style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_hutang']); ?></td>
+								</tr  style = "border:1px solid #ddd;" >
+									<?php $jumlah = $jumlah + $key['total_hutang']?>
+								<?php
                                         }
 										
 										?>
+								<tfoot style = "border:1px solid #ddd;">
+									<td colspan = "2" style = "border:1px solid #ddd; text-align:center;" ><b>Total</b></td>
+									<td style = "border:1px solid #ddd; text-align:left" colspan = "4"> <b>Rp <?php echo number_format($jumlah); ?></b> </td>
+								</tfoot>
                             </tbody>
                            
                         </table>
                     </div>
 					</center>
-					<div class="footer-content">
-						
-						<div>Mengetahui,</div>
-						<table>
+					<!-- <div class="footer-content"> -->
+						<center>
+						<br><br><br>
+						<table style="width:70%;">
 							<tbody>
 								<tr>
+									<td colspan="8" style="text-align:center">Mengetahui,</td>
+								</tr>
+								<tr>
 									<td style="height:150px;">Keuangan</td>
-									<td>Pimpinan</td>
+									<td style="width:150px;"></td>
+									<td style="text-align:right">Pimpinan</td>
 								</tr>
 								<tr>
 									<td><u><strong>Andi</strong></u></td>
-									<td><u><strong>Nizar Sungkar</strong></u></td>
+									<td style="text-align:right" colspan="8"><u><strong>Irwandi</strong></u></td>
 								</tr>
 							</tbody>
 						</table>
-					</div>
+						</center>
+						</td>
+			</tr>
+		</table>
+		</center>
+					<!-- </div> -->
 				</div>
 				
 		</div>

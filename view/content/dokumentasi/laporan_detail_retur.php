@@ -63,12 +63,12 @@
 			}
 			
 			.table tbody tr td{
-				border:1px solid #ddd;
+				/* border:1px solid #ddd; */
 				text-align:left;
 			}
 			
 			.footer-content{
-				padding-top:100px;
+				/* padding-top:100px; */
 				width:100%;
 				text-align:center;
 				font-size:17px;
@@ -78,13 +78,17 @@
 			.footer-content table{
 				width:70%;
 				margin:0px auto;
-				text-align:center;
+				text-align:left;
 				margin-top:0px;
 				font-size:17px;
 			}
 		</style>
 	</head>
 	<body onload="window.print()">
+	<center>
+				<table class="table" >
+					<tr>
+						<td>
 		<div class="header">
 			<table style="width:100%">
 				<tr>
@@ -112,7 +116,7 @@
 				<hr>
 				<hr>
 				<center>
-					Detail Laporan Retur Pembelian
+					DETAIL LAPORAN RETUR PEMBELIAN
 				</center>
 				<div class="container">
 				<div class="row">
@@ -150,20 +154,20 @@
                             <th>Sub Harga</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody style = "border:1px solid #ddd;" >
                       <?php 
                       if ($retur_detail->tampil_retur($id_retur)!=false) {
 						  $no = 1;
                           $total = 0;
                           $total_transaksi = 0;
                           foreach ($retur_detail->tampil_retur($id_retur) as $key){   ?>
-                          <tr>
+                          <tr style = "border:1px solid #ddd;" >
                             <form action="" method="post">
-                            <td><?php echo $no++; ?><input type="hidden" name="detail_ret_id" value="<?php echo $key['detail_ret_id'] ;?>"></td>
-                            <td><?php echo $key['nama_barang']; ?></td>
-                            <td><?php echo $key['jumlah'];?></td>
-                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
-                            <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $no++; ?><input type="hidden" name="detail_ret_id" value="<?php echo $key['detail_ret_id'] ;?>"></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $key['nama_barang']; ?></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $key['jumlah'];?></td>
+                            <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
+                            <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
@@ -172,27 +176,36 @@
                     } ?>
                       <tfoot>
                         <tr>
-                            <th colspan="4" align="right">Total transaksi</th>
+                            <th colspan="4" align="left">Total transaksi</th>
                             <th colspan ="2" align="left" >Rp <?php echo number_format($total,2); ?></th>
                         </tr>
                       </tfoot>
            			 </table>
-					<div class="footer-content">
-						
-						<div>Mengetahui,</div>
-						<table>
+				</center>
+				<br><br><br>
+					<!-- <div class="footer-content"> -->
+						<table style="width:80%;">
 							<tbody>
 								<tr>
-									<td style="height:150px;">Kepala Gudang</td>
-									<td>Pimpinan</td>
+									<td colspan="8" style="text-align:center">Mengetahui,</td>
 								</tr>
 								<tr>
-									<td><u><strong>Sri Yanti</strong></u></td>
-									<td><u><strong>Nizar Sungkar</strong></u></td>
+									<td style="height:150px;">Admin</td>
+									<td style="width:150px;"></td>
+									<td style = "text-align:right;" >Keuangan</td>
 								</tr>
+								<tr>
+									<td><u><strong>Iis Parwati</strong></u></td>
+									<td style = "text-align:right;" colspan="8"><u><strong>Irwandi</strong></u></td>
+								</tr>
+								
 							</tbody>
 						</table>
-					</div>
+								
+								</td>
+							</tr>
+						</table>
+					<!-- </div> -->
               </div>
         </div>
       </div>	

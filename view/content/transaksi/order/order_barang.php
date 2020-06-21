@@ -1,7 +1,7 @@
 <?php 
-    if (!isset($_SESSION['suplier'])) {
-      echo "<meta http-equiv='refresh' content='1;url=index.php?p=request_barang'>";
-    }
+    // if (!isset($_SESSION['suplier'])) {
+    //   echo "<meta http-equiv='refresh' content='1;url=index.php?p=request_barang'>";
+    // }
 
     if (isset($_GET['action'])) {
       if ($_GET['action'] == 'hapus') {

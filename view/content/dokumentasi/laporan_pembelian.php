@@ -54,7 +54,7 @@
 			}
 			
 			.table tbody tr td{
-				border:1px solid #ddd;
+				/* border:1px solid #ddd; */
 				text-align:left;
 			}
 			
@@ -76,7 +76,10 @@
 		</style>
 	</head>
 	<body onload="window.print()">
-
+			<center>
+				<table class="table">
+					<tr>
+						<td>
 		<div class="header">
 			<table style="width:100%">
 				<tr>
@@ -106,13 +109,31 @@
 				<center>
 					LAPORAN PEMBELIAN
 					
+				</center>
 				<div class="container">
-				<?php
-					if (isset($_GET['src'])){
-						echo "Tanggal : ";
-						echo date('d/m/Y', strtotime($_GET['src'])); 
-					}
-					?>
+				<center>
+				<table class="table">
+					<tr>
+						<td>
+						<?php
+							if (isset($_GET['src'])){
+								echo "Tanggal : ";
+								$src = $_GET['src'];
+								// echo "src = ".$src."<br>";
+								echo date('d/m/Y', strtotime($_GET['src']));
+							}
+							if(isset($_GET['src1'])) {
+								echo " - ";
+								$src1 = $_GET['src1'];
+								// echo "src1= ".$src1."<br>";
+								echo date('d/m/Y', strtotime($_GET['src1']));
+							}
+							?>
+						</td>
+					</tr>
+				</table>
+				</center>
+				<center>
 				<table class="table" cellpadding="1" cellspacing="1">
 					<thead>
                         <tr>
@@ -128,27 +149,32 @@
 							?>
                         </tbody>
                 </table>
-				</center>
-				<div class="footer-content">
-						
-					<div>Mengetahui,</div>
-					<table>
-						<tbody>
+				<!-- <div class="footer-content"> -->
+					<center>
+					<br><br><br>
+					<table style="width:80%;" border="0">
+							<tbody>
+								<tr>
+									<td colspan="8" style="text-align:center">Mengetahui,</td>
+								</tr>
 							<tr>
 								<td style="height:150px;">Admin</td>
-								<td>Keuangan</td>
+								<td style="width:150px;"></td>
+								<td style="text-align:right">Keuangan</td>
 							</tr>
-							<tr>
-                            <br>
-                            <br>							
+							<tr>						
 								<td><u><strong>Iis Parwati</strong></u></td>
-								<td><u><strong>Nizar Sungkar</strong></u></td>
+								<td style="text-align:right" colspan="8"><u><strong>Irwandi</strong></u></td>
 							</tr>
 						</tbody>
 					</table>
-					</div>
+					</center>
+					<!-- </div> -->
 				</div>
-				
+				</td>
+					</tr>
+				</table>
+			</center>
 		</div>
 		<!-- <a href="laporan_pembelian_exel.php">Dapatkan File Exel</a> -->
 	</body>

@@ -4,23 +4,26 @@
 			$koneksi = new koneksi;
             if (isset($_GET['src'])) {
                 $src = $_GET['src'];
-                // $query = mysqli_query($koneksi->conn,"SELECT id_retur, `retur`.`status`, `retur`.`total_transaksi`, `retur`.`tanggal`, `order`.`nama_suplier`, `retur`.`id_order` FROM `retur` join `order` on `retur`.`id_order` = `order`.`id_order` WHERE `retur`.`status`  LIKE '%$src%' OR `retur`.`total_transaksi` LIKE '%$src%' OR `retur`.`tanggal` LIKE '%$src%' OR `order`.`nama_suplier` LIKE '%$src%' OR `retur`.`id_order` LIKE '%$src%'");
-                $query = mysqli_query($koneksi->conn,"SELECT id_retur, `retur`.`status`, `retur`.`total_transaksi`, `retur`.`tanggal`, `order`.`nama_suplier`, `retur`.`id_order` FROM `retur` join `order` on `retur`.`id_order` = `order`.`id_order` WHERE `retur`.`tanggal` = '$src'");
+                if (isset($_GET['src1'])) {
+                    $src1 = $_GET['src1'];
+                    // $query = mysqli_query($koneksi->conn,"SELECT id_retur, `retur`.`status`, `retur`.`total_transaksi`, `retur`.`tanggal`, `order`.`nama_suplier`, `retur`.`id_order` FROM `retur` join `order` on `retur`.`id_order` = `order`.`id_order` WHERE `retur`.`status`  LIKE '%$src%' OR `retur`.`total_transaksi` LIKE '%$src%' OR `retur`.`tanggal` LIKE '%$src%' OR `order`.`nama_suplier` LIKE '%$src%' OR `retur`.`id_order` LIKE '%$src%'");
+                    $query = mysqli_query($koneksi->conn,"SELECT id_retur, `retur`.`status`, `retur`.`total_transaksi`, `retur`.`tanggal`, `order`.`nama_suplier`, `retur`.`id_order` FROM `retur` join `order` on `retur`.`id_order` = `order`.`id_order` WHERE `retur`.`tanggal` >= '$src' AND `retur`.`tanggal` <= '$src1'");
+                }
             }else{
                 $query = mysqli_query($koneksi->conn,"SELECT id_retur, `retur`.`status`, `retur`.`total_transaksi`, `retur`.`tanggal`, `order`.`nama_suplier`, `retur`.`id_order` FROM `retur` join `order` on `retur`.`id_order` = `order`.`id_order`");
-            } 
+            }
             $no = 1;
             while($key=mysqli_fetch_array($query)) {
             ?>
-                <tr>
+                <tr style = "border:1px solid #ddd;" >
                     <form action="" method="post">
-                    <td><?php echo $no++; ?>
+                    <td style = "border:1px solid #ddd;" ><?php echo $no++; ?>
                     <input type="hidden" value="<?php echo $key['id_retur']; ?>" name="id_retur">
                     </td>
-                    <td><?php echo $key['id_retur']; ?></td>
-                    <td><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
-                    <td><?php echo $key['nama_suplier']; ?></td>
-                    <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['id_retur']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo date('d/m/Y', strtotime($key['tanggal'])); ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+                    <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
                     </form>
                 </tr><?php
                 }
@@ -31,20 +34,23 @@
 		    $koneksi = new koneksi;
 			if (isset($_GET['src'])) {
                 $src = $_GET['src'];
-                // $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `id_order` LIKE '%$src%' OR `tanggal` LIKE '%$src%' OR `status` LIKE '%$src%' OR `total_transaksi` LIKE '%$src%' OR `nama_suplier` LIKE '%$src%' OR `tanggal_penerimaan` LIKE '%$src%' OR `tanggal_pembelian` LIKE '%$src%' OR `no_surat_jalan` LIKE '%$src%' OR `tanggal_pelunasan` LIKE '%$src%' AND  `status`<>'$status'");
-				$query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `tanggal_pembelian` = '$src'");
-			}else {
+                if (isset($_GET['src1'])) {
+                    $src1 = $_GET['src1'];
+                    // $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `id_order` LIKE '%$src%' OR `tanggal` LIKE '%$src%' OR `status` LIKE '%$src%' OR `total_transaksi` LIKE '%$src%' OR `nama_suplier` LIKE '%$src%' OR `tanggal_penerimaan` LIKE '%$src%' OR `tanggal_pembelian` LIKE '%$src%' OR `no_surat_jalan` LIKE '%$src%' OR `tanggal_pelunasan` LIKE '%$src%' AND  `status`<>'$status'");
+                    $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `tanggal_pembelian` >= '$src' AND `tanggal_pembelian` <= '$src1'");
+                }
+            }else {
                 $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status'");
             }
             $no = 1;
             $empty_date = '0000-00-00';
 			while($key=mysqli_fetch_array($query)){ ?>
-                <tr>
+                <tr style = "border:1px solid #ddd;" >
                 	<form action="" method="post">
-                    <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
-            	    <td><?php echo $key['nama_suplier']; ?></td>
-                    <td><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
-                    <td>Rp <?php echo number_format($key['total_transaksi']);?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
+            	    <td style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php if($empty_date == $key['tanggal_pembelian']){echo "Proses Pembelian";}else{echo date('d/m/Y', strtotime($key['tanggal_pembelian'])); }?></td>
+                    <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_transaksi']);?></td>
                     </form>
                 </tr> <?php
 			}
@@ -53,11 +59,14 @@
             $no =1;
 			$koneksi = new koneksi;
 			if (isset($_GET['src'])) {
-				$src = $_GET['src'];
-				$query = mysqli_query($koneksi->conn,"SELECT `id_pembayaran`, `pembayaran`.`id_order`, `nomor_faktur`,`tanggal`,`tanggal_penerimaan`, `tanggal_pelunasan`, `tanggal_pembelian`, `no_surat_jalan`, `nama_suplier`, `order`.`status`, `pembayaran`.`status`,`total_transaksi`, `tempo` as `akhir pembayaran` from `pembayaran` join `order` on `pembayaran`.`id_order` = `order`.`id_order` WHERE `tanggal_pelunasan` = '$src'");
-			}else{
-				$query = mysqli_query($koneksi->conn,"SELECT `id_pembayaran`, `pembayaran`.`id_order`,`tanggal`,`tanggal_penerimaan`, `nomor_faktur`, `tanggal_pelunasan`, `tanggal_pembelian`, `no_surat_jalan`, `nama_suplier`, `order`.`status`, `pembayaran`.`status`,`total_transaksi`, `tempo` as `akhir pembayaran` from `pembayaran` join `order` on `pembayaran`.`id_order` = `order`.`id_order`");
-				}
+                $src = $_GET['src'];
+                if (isset($_GET['src1'])) {
+                    $src1 = $_GET['src1'];
+                    $query = mysqli_query($koneksi->conn,"SELECT `id_pembayaran`, `pembayaran`.`id_order`, `nomor_faktur`,`tanggal`,`tanggal_penerimaan`, `tanggal_pelunasan`, `tanggal_pembelian`, `no_surat_jalan`, `nama_suplier`, `order`.`status`, `pembayaran`.`status`,`total_transaksi`, `tempo` as `akhir pembayaran` from `pembayaran` join `order` on `pembayaran`.`id_order` = `order`.`id_order` WHERE `tanggal_pelunasan` >= '$src' AND `tanggal_pelunasan` <='$src1'");
+                }
+            }else{
+                $query = mysqli_query($koneksi->conn,"SELECT `id_pembayaran`, `pembayaran`.`id_order`,`tanggal`,`tanggal_penerimaan`, `nomor_faktur`, `tanggal_pelunasan`, `tanggal_pembelian`, `no_surat_jalan`, `nama_suplier`, `order`.`status`, `pembayaran`.`status`,`total_transaksi`, `tempo` as `akhir pembayaran` from `pembayaran` join `order` on `pembayaran`.`id_order` = `order`.`id_order`");
+            }
             
             while($key=mysqli_fetch_array($query)) {
                 if ($key['status'] == 'Belum Lunas') {
@@ -82,17 +91,17 @@
                 }else {
                     $a = "Sudah Lunas";
                     } ?> 
-                <tr>
+                <tr style = "border:1px solid #ddd;" >
                     <form action="" method="post">
-                    <td><?php echo $no++; ?> <input type="hidden" value="<?php echo $key['id_pembayaran']; ?>" name="id_pembayaran"> </td>
-                    <td><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
-                    <td><?php echo $key['nomor_faktur']?></td>
-                    <td><?php echo $key['nama_suplier']; ?></td>
-                    <td><?php if ($key['status'] == "Belum Lunas") { echo "Proses verifikasi"; } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
-                    <td><?php echo $key['akhir pembayaran']?></td>
-                    <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
-                    <td><?php echo $key['status']; ?></td>
-                    <td><?php echo $a; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $no++; ?> <input type="hidden" value="<?php echo $key['id_pembayaran']; ?>" name="id_pembayaran"> </td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['nomor_faktur']?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php if ($key['status'] == "Belum Lunas") { echo "Proses verifikasi"; } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['akhir pembayaran']?></td>
+                    <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['status']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $a; ?></td>
                     </form>
                 </tr> <?php }
         }
@@ -102,21 +111,24 @@
 			$koneksi = new koneksi;
             if (isset($_GET['src'])) {
                 $src = $_GET['src'];
-                $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `tanggal_penerimaan` = '$src' AND  `status`<>'$status' AND `status`<>'$status1'");
+                if (isset($_GET['src1'])) {
+                    $src1 = $_GET['src1'];
+                    $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `tanggal_penerimaan` >= '$src' AND `tanggal_penerimaan` <= '$src1' AND  `status`<>'$status' AND `status`<>'$status1'");
+                }
             }else {
-				$query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `status`<>'$status1'");
+                $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `status`<>'$status1'");
             }
             $no = 1;
             $empty_date = '0000-00-00';
 			while($key=mysqli_fetch_array($query)){ ?>
-                <tr>
+                <tr style = "border:1px solid #ddd;" >
                 	<form action="" method="post">
-                    <td><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
-                    <td><?php echo $key['nomor_faktur']?></td>
-                    <td><?php echo $key['no_surat_jalan']?></td>
-            	    <td><?php echo $key['nama_suplier']; ?></td>
-                    <td><?php if($empty_date == $key['tanggal_penerimaan']){echo "Proses Pembayaran";}else{echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); }?></td>
-                    <td>Rp <?php echo number_format($key['total_transaksi']);?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $no++; ?><input type="hidden" name="id_order" value="<?php echo $key['id_order']?>"></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['nomor_faktur']?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo $key['no_surat_jalan']?></td>
+            	    <td style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php if($empty_date == $key['tanggal_penerimaan']){echo "Proses Pembayaran";}else{echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); }?></td>
+                    <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_transaksi']);?></td>
                     </form>
                 </tr> <?php
             }

@@ -65,7 +65,7 @@
     <div class="col">
       <div class="row justify-content-center mb-4 align-items-center">
 	  <div class="col-xl-1"></div>
-          <div class="col-lg-5">
+          <div class="col-lg-6">
               <div class="card shadow mb-4 border-left-dark" style="width: 35rem;  height: 29rem;">
                   <div class="card-body">
                       <h5 class="card-title">Tambah Data Barang</h5>

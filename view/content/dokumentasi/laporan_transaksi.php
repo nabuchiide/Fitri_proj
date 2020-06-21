@@ -167,7 +167,7 @@
 							</tr>
 							<tr>
 								<td><u><strong>Ahmad Denejad</strong></u></td>
-								<td><u><strong>Nizar Sungkar</strong></u></td>
+								<td><u><strong>Irwandi</strong></u></td>
 							</tr>
 						</tbody>
 					</table>

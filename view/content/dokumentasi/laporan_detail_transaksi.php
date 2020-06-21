@@ -64,7 +64,7 @@
 			}
 			
 			.table tbody tr td{
-				border:1px solid #ddd;
+				/* border:1px solid #ddd; */
 				text-align:left;
 			}
 			
@@ -79,13 +79,17 @@
 			.footer-content table{
 				width:70%;
 				margin:0px auto;
-				text-align:center;
+				/* text-align:center; */
 				margin-top:0px;
 				font-size:17px;
 			}
 		</style>
 	</head>
 	<body onload="window.print()">
+	<center>
+					<table class="table">
+						<tr>
+							<td>
 		<div class="header">
 			<table style="width:100%">
 				<tr>
@@ -128,7 +132,8 @@
 				<div class="container">
 				<div class="row">
 				<p>
-                    <table width = "40%">
+				
+                    <table width = "50%">
                     <tr>
                         <td>Id Order</td>
                         <td>:</td>
@@ -154,7 +159,7 @@
                         <td>:</td>
                         <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_penerimaan)); ?></td>
                     </tr>
-					<tr <?php if($type == 'pembayaran' || $type == 'pelunasan'){echo "hidden"; $a="Keuangan"; $b = "Pimpinan"; $a1="Andi"; $b1 = "Nizar Sungkar";}?>>
+					<tr <?php if($type == 'pembayaran' || $type == 'pelunasan'){echo "hidden"; $a="Keuangan"; $b = "Pimpinan"; $a1="Andi"; $b1 = "Irwandi";}?>>
                         <td>Tanggal Pembelian </td>
                         <td>:</td>
                         <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
@@ -183,13 +188,13 @@
                           $total = 0;
                           $total_transaksi = 0;
                           foreach ($detail_permintaan->tampil_order($id_order) as $key){   ?>
-                          <tr>
+                          <tr style = "border:1px solid #ddd;" >
                             <form action="" method="post">
-                            <td><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detail_cart_id'] ;?>"></td>
-                            <td><?php echo $key['nama_barang']; ?></td>
-                            <td><?php echo $key['jumlah'];?></td>
-                            <td>Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
-                            <td>Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $no++; ?><input type="hidden" name="id_detail_cart" value="<?php echo $key['detail_cart_id'] ;?>"></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $key['nama_barang']; ?></td>
+                            <td style = "border:1px solid #ddd;" ><?php echo $key['jumlah'];?></td>
+                            <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['harga_transaksi'],2); ?></td>
+                            <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['jumlah'] * $key['harga_transaksi'],2);?></td>
                             </form>
                           </tr>
                             <?php $total = $total + ($key['jumlah'] * $key['harga_transaksi']);?>
@@ -202,22 +207,33 @@
                         </tfoot>
 					</tbody>
            			 </table>
-					<div class="footer-content">
 						
-						<div>Mengetahui,</div>
-						<table>
+					<!-- <div class="footer-content"> -->
+						
+						<!-- <div>Mengetahui,</div> -->
+						<br><br><br>
+						<table style="width:80%;">
 							<tbody>
 								<tr>
-									<td style="height:150px;"><?php echo $a;?></td>
-									<td><?php echo $b;?></td>
+									<td colspan="8" style="text-align:center">Mengetahui,</td>
 								</tr>
 								<tr>
-									<td><u><strong><?php echo $a1;?></strong></u></td>
-									<td><u><strong><?php echo $b1;?></strong></u></td>
+									<td style="height:150px;">Keuangan</td>
+									<td style="width:150px;"></td>
+									<!-- <td style="width:150px;"></td> -->
+									<td style="text-align:right">Pimpinan</td>
+								</tr>
+								<tr>
+									<td><u><strong>Irwandi</strong></u></td>
+									<td style="text-align:right" colspan="8"><u><strong>Nizar Sungkar</strong></u></td>
 								</tr>
 							</tbody>
 						</table>
-					</div>
+						</td>
+						</tr>
+					</table>
+				</center>
+					<!-- </div> -->
               </div>
         </div>
       </div>	

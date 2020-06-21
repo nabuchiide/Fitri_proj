@@ -32,7 +32,7 @@
            $this->admin = "Iis Parwati";
            $this->kepala_g = "Sri Yanti";
            $this->keuangan = "Andi";
-           $this->pimpinan = "Nizar Sungkar";
+           $this->pimpinan = "Irwandi";
         }
    }
    $nama = new nama2();
