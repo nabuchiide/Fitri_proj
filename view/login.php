@@ -30,27 +30,28 @@
     // print_r($_SESSION);
     // echo "</pre>";
 ?>
-<body class="bg-gradient-success">
+<!-- class="bg-gradient-success" -->
+<body  style=" background: url('../atribut/img/back.jpg');">
   
   <div class="container">
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
-      <div class="col-xl-5 col-lg col-md-10">
+    <div class="col-xl-5 col-lg col-md-10">
+      
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <!-- <div class = "col-lg-6">
-                <div class="col-lg-1 d-none d-lg-block bg-login-image">
+            <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+                <!-- <div class="col-lg-1 d-none d-lg-block bg-login-image">
                   <img src="../atribut/img/harapan.png" alt="" srcset="">
-                </div>
-              </div> -->
-              <div class="col-lg-12">
+                </div> -->
+                <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4 font-weight">Login</h1>
+                    <h1> <i class="fas fa-fw fa-user-circle fa-lg"></i> </h1>
+                    <h1 class="h3 text-gray-900 mb-4 font-weight">- Login -</h1>
                   </div>
                   <hr>
                   <form class="user" method="post">
@@ -74,10 +75,10 @@
             </div>
           </div>
         </div>
-
       </div>
-
+      </div>
     </div>
 
-  </div>
+    </div>
+    </div>
 </body>

@@ -133,7 +133,7 @@
         }
         public function tampil_selain2($status, $status1){
             $koneksi = new koneksi;
-            $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' OR `status`<>'$status1'");
+            $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` where `status`<>'$status' AND `status`<>'$status1'");
             if (mysqli_num_rows($query)>0) {
                 while ($row= mysqli_fetch_array($query)) {
                     $data[]= $row;

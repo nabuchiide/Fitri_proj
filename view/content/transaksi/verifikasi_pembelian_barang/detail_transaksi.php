@@ -3,12 +3,19 @@
   $permintaan_barang->detail($id_order);
   if (isset($_POST['beli'])) {
     $status = "dibeli";
-    $tanggal_pembelian = $_POST['tanggal_pembelian']; 
-    $_SESSION['tanggal_pembelian'] = $tanggal_pembelian;
-    $permintaan_barang->di_beli($id_order, $status);
-    $permintaan_barang->edit_tanggal_pembelian_barang($id_order, $_SESSION['tanggal_pembelian']);
-    
-    echo " <meta http-equiv='refresh' content='1;url=index.php?p=verifikasi_p'>";
+    $Today=date('y:m:d');
+    $new=date('d/m/y',strtotime($Today));
+    $tanggal_pembelian = date('d/m/y', strtotime($_POST['tanggal_pembelian']));
+    if ($tanggal_pembelian == $new) {      
+      $_SESSION['tanggal_pembelian'] = $tanggal_pembelian;
+      $permintaan_barang->di_beli($id_order, $status);
+      $permintaan_barang->edit_tanggal_pembelian_barang($id_order, $_SESSION['tanggal_pembelian']);
+
+      echo " <meta http-equiv='refresh' content='1;url=index.php?p=verifikasi_p'>";
+    }else{
+      echo"<div class='alert alert-danger'><span class='fa fa-check'> Tanggal Pembelian harus hari ini! </span></div>";
+      echo " <meta http-equiv='refresh' content='1;url=index.php?p=verifikasi_detail_p&id=".$id_order."'>";
+    }
   }
   // if (isset($_POST['bayar'])) {
   //   $status = "dibayar";
@@ -48,7 +55,7 @@
                   <tr>
                     <td>Tanggal Permintaan</td>
                     <td>:</td>
-                    <td><input type="date" class="form-control col-sm-7" name="tanggal_pembelian" value="<?php echo $permintaan_barang->tanggal;?>" disabled></td>
+                    <td><input type="date" class="form-control col-sm-7" name="tanggal_permintaan" value="<?php echo $permintaan_barang->tanggal;?>" disabled></td>
                   </tr>
                   <tr>
                     <td>Tanggal Pembelian</td>

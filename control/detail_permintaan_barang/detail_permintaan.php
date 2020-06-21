@@ -51,7 +51,7 @@
         }
         public function tampil_detail_order($detail_cart_id){
             $koneksi = new koneksi;
-            $query = mysqli_query($koneksi->conn,"SELECT * FROM `detail_order` WHERE `detail_cart_id` = $detail_cart_id");
+            $query = mysqli_query($koneksi->conn,"SELECT * FROM `detail_order` WHERE `detail_cart_id` = '$detail_cart_id'");
             if (mysqli_num_rows($query)>0) {
                 while ($row= mysqli_fetch_array($query)) {
                     $data[]= $row;
