@@ -34,6 +34,45 @@
     echo " <meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
     }
   }
+
+  if (isset($_POST['order1'])) {
+    $id_barang = $_POST['id_bar'];
+    $jumlah     = trim($_POST['jumlah']);
+    $jumlah_crt = $jumlah;
+    $katalog->tampil_keranjang($id_barang);
+
+    if (isset($_SESSION["cart"])) {
+      $item_array_id = array_column($_SESSION["cart"], "item_id");
+        if (!in_array($id_barang, $item_array_id)) {
+          $count = count($_SESSION['cart']);
+          $item_array= array(
+            'item_id' => $katalog->id_barang,
+            'item_nama' => $katalog->nama_barang,
+            'item_harga' => $katalog->harga_barang,
+            'item_jumlah' => $jumlah_crt,
+            'item_id_sup'  =>$katalog->id_suplier,
+            'item_nama_sup' => $katalog->nama_suplier
+          );
+          $_SESSION["cart"][$count] = $item_array;
+          echo " <meta http-equiv='refresh' content='1;url=index.php?p=order'>";
+          }else {
+          echo " <meta http-equiv='refresh' content='1;url=index.php?p=order'>";
+            echo '<script>alert("Item sudah ada di dalam list pemesanan")</script>';
+            }
+        }else {
+          $item_array= array(
+            'item_id' => $katalog->id_barang,
+            'item_nama' => $katalog->nama_barang,
+            'item_harga' => $katalog->harga_barang,
+            'item_jumlah' => $jumlah_crt,
+            'item_id_sup'  =>$katalog->id_suplier,
+            'item_nama_sup' => $katalog->nama_suplier
+          );
+          $_SESSION["cart"][0] = $item_array;
+        }
+  echo " <meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
+  }
+
   if(isset($_POST['kosong'])){
 	  if(isset($_SESSION["cart"])){
 		unset($_SESSION['date']);
@@ -143,35 +182,73 @@
                           $Id_ret           = trim($_POST['Id_retur']);
                           $_SESSION['Id_ret']  = $Id_ret;
                           $_SESSION['Id_order'] = $Id_req;
-
+                          $permintaan_barang->detail($_SESSION['Id_order']);
+                          $stat= $permintaan_barang->status;
+                          $sup= $permintaan_barang->nama_suplier;
+                          $suplier->detail_nama($sup);
+                          $id_suplier = $suplier->id_suplier;
                           $no =1;
-                          if ($detail_permintaan->tampil_order($Id_req)  != False){
-                            foreach($detail_permintaan->tampil_order($Id_req) as $key){
-                              ?>
-                            <tr>
-                            <form action="" method="post">
-                            <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $key['detail_cart_id']; ?>" name="id_bar"></td>
-                            <td><?php echo $key['nama_barang'] ;?></td>
-                            <td>
-                            <input type="number" max ="<?php echo $key['jumlah']?>" class="form-control"  name="jumlah" placeholder="Harus Kurang dari -<?php echo $key['jumlah']?>"></td>
-                            <td>
-                              <button type="submit" name="order" class="btn btn-sm btn-primary btn-custom" >
-                                <span class="icon text-white-50">
-                                  <i class="fas fa-random"></i>
-                                </span>
-                                <span class="icon text-white-50">
-                                retur
-                                </span>
-                              </button>
-                            </td>
-                          </form>
-                          </tr>
-                        <?php
+                          if ($stat != "Lunas") {
+                            if ($detail_permintaan->tampil_order($Id_req)  != False){
+                              foreach($detail_permintaan->tampil_order($Id_req) as $key){
+                                ?>
+                              <tr>
+                              <form action="" method="post">
+                              <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $key['detail_cart_id']; ?>" name="id_bar"></td>
+                              <td><?php echo $key['nama_barang'] ;?></td>
+                              <td>
+                              <input type="number" max ="<?php echo $key['jumlah']?>" class="form-control"  name="jumlah" placeholder="Harus Kurang dari -<?php echo $key['jumlah']?>"></td>
+                              <td>
+                                <button type="submit" name="order" class="btn btn-sm btn-primary btn-custom" >
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-random"></i>
+                                  </span>
+                                  <span class="icon text-white-50">
+                                  retur
+                                  </span>
+                                </button>
+                              </td>
+                            </form>
+                            </tr>
+                          <?php
+                              }
+                            }else {
+                              echo "<script>
+                              alert('data tidak ada!');
+                              </script>";
                             }
+                            
                           }else {
-                            echo "<script>
-                            alert('data tidak ada!');
-                            </script>";
+                            if ($katalog->tampil_permint($id_suplier)  != False){
+                              foreach($katalog->tampil_permint($id_suplier) as $katalog_dat){
+                                ?>
+                              <tr>
+                              <form action="" method="post">
+                              <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $katalog_dat['id_barang']; ?>" name="id_bar"></td>
+                              <td><?php echo $katalog_dat['nama_barang'] ;?></td>
+                              <td><?php echo $katalog_dat['harga_barang'] ;?></td>
+                              <td>
+                              <input type="text" class="form-control"  name="jumlah" max ="<?php echo $katalog_dat['jumlah_barang']?>" placeholder="Harus Kurang dari -<?php echo $katalog_dat['jumlah_barang']?>"></td>
+                              <td>
+                                <button type="submit" name="order1" class="btn btn-sm btn-primary btn-custom" >
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-random"></i>
+                                  </span>
+                                  <span class="icon text-white-50">
+                                  retur
+                                  </span>
+                                </button>
+                              </td>
+                            </form>
+                            </tr>
+                          <?php
+                              }
+                            }else {
+                              echo "<script>
+                              alert('data tidak ada!');
+                              </script>";
+                            }
+                            
                           }
                         }
                       ?>

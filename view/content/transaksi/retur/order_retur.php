@@ -4,7 +4,6 @@
   $permintaan_barang->detail($id_order);
   $tgl_beli = $permintaan_barang->tanggal_pembelian;
   $stat = $permintaan_barang->status;
-  echo $stat;
   $nama_suplier = $permintaan_barang->nama_suplier;
     if (!isset($_SESSION['Id_order'])) {
       echo "<meta http-equiv='refresh' content='1;url=index.php?p=permintaan_retur'>";
@@ -31,6 +30,7 @@
         $tanggal1= date('d/m/y', strtotime($tanggal));
         if ($tanggal1 > $new) {
           $_SESSION['date']   = $tanggal;
+          $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
             if ($stat != "Lunas"){
               $permintaan_barang->edit_total_transaksi_retur($id_order, $total_transaksi);
                 if ($stat == "Porses Pelunasan") {
@@ -38,7 +38,6 @@
                 }else {
                   $hutang-> kurang_hutang($nama_suplier, $total_transaksi1);
                 }
-              $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
               foreach ($_SESSION['cart'] as $keys => $values) {
                 $nama_barang = $values["item_nama"];
                 $harga_transaksi = $values["item_harga"];

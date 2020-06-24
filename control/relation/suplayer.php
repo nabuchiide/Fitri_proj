@@ -59,5 +59,16 @@
             $this->nomor_telepon = $row['nomor_telepon'];
             $this->alamat = $row['alamat'];
         }
+
+        public function detail_nama($nama_suplier){
+            $koneksi = new koneksi;
+            $query = mysqli_query($koneksi->conn,"SELECT * FROM `suplier` WHERE `nama_suplier`='$nama_suplier'");
+            $row = $query->fetch_assoc();
+            
+            $this->id_suplier = $row['id_suplier'];
+            $this->nama_suplier = $row['nama_suplier'];
+            $this->nomor_telepon = $row['nomor_telepon'];
+            $this->alamat = $row['alamat'];
+        }
     }
     ?>
