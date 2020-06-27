@@ -1,17 +1,16 @@
 <?php 
     require_once 'koneksi.php';
     require_once 'barang/barang.php';
-    require_once 'relation/suplayer.php';
-    require_once 'akun/user.php';
+    require_once 'suplier/suplayer.php';
+    require_once 'user/user.php';
     require_once 'katalog/katalog.php';
     require_once 'permintaan_barang/permintaan_barang.php';
     require_once 'pembayaran/pembayaran.php';
     require_once 'detail_permintaan_barang/detail_permintaan.php';
     require_once 'retur/retur.php';
-    require_once 'retur_detail/retur_detail.php';
+    require_once 'detail_retur/detail_retur.php';
     require_once 'hutang/hutang.php';
     require_once 'Laporan/laporan.php';
-    
 
     $koneksi = new koneksi();
     $barang = new barang();

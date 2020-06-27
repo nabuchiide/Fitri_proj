@@ -171,6 +171,7 @@
                         <tr>
                             <th>NO</th>
                             <th>Nama Barang</th>
+                            <th>Harga Barang</th>
                             <th>Jumlah</th>
                             <th>Aksi</th>
                         </tr>
@@ -196,6 +197,7 @@
                               <form action="" method="post">
                               <td><?php echo $no++ ;?><input type="hidden" value="<?php echo $key['detail_cart_id']; ?>" name="id_bar"></td>
                               <td><?php echo $key['nama_barang'] ;?></td>
+                              <td><?php echo $key['harga_transaksi']; ?></td>
                               <td>
                               <input type="number" max ="<?php echo $key['jumlah']?>" class="form-control"  name="jumlah" placeholder="Harus Kurang dari -<?php echo $key['jumlah']?>"></td>
                               <td>

@@ -1,6 +1,6 @@
 <?php
     require_once "../control/loader.php";
-    require_once '../control/akun/user.php';
+    require_once '../control/user/user.php';
     include_once 'head.php';
     $user = new user();
     session_start();
