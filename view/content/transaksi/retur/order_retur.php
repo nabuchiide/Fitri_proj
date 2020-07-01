@@ -28,7 +28,8 @@
         
         $new=date('d/m/y',strtotime($tgl_beli));
         $tanggal1= date('d/m/y', strtotime($tanggal));
-        if ($tanggal1 > $new) {
+
+        // if ($tgl_hasil > -1) {
           $_SESSION['date']   = $tanggal;
           $retur->simpan($id_retur, $status, $total_transaksi, $tanggal, $id_order);
             if ($stat != "Lunas"){
@@ -64,11 +65,11 @@
           unset($_SESSION['date']);
           unset($_SESSION['total_belanja']);
           unset($_SESSION['cart']);
-        } else {
-           echo"<div class='alert alert-danger'><span class='fa fa-check'> Tanggal tidak cocok, tanggal harus melebihi tanggal pembelian! </span></div>";
-           unset($_SESSION['date']);
-           echo " <meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
-        }
+        // } else {
+        //    echo"<div class='alert alert-danger'><span class='fa fa-check'> Tanggal tidak cocok, tanggal harus melebihi atau sama dengan tanggal pembelian! </span></div>";
+        //    unset($_SESSION['date']);
+        //    echo " <meta http-equiv='refresh' content='1;url=index.php?p=retur_detail'>";
+        // }
     }
 
     if (isset($_POST['edit'])) {
