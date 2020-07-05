@@ -31,45 +31,71 @@
               <h6 class="m-0 font-weight-bold">Daftar Seluruh Pembayaran</h6>
             </div>
             <div class="card-body" >
-            <div class="table-responsive">
+            <div class="card-body" >
+                    <div class="table-responsive">
                         <table class="table table-bordered table-striped" width="100%" cellspacing="0" id="dataTable">
-                            <thead>
+                        <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>No Faktur</th>
                                     <th>No Surat Jalan</th>
                                     <th>Nama Suplier</th>
-                                    <th>Tanggal Penerimaan</th>
-                                    <th>Total transaksi</th>
+                                    <th>Lama Jatuh Tempo</th>
+                                    <th>Tanggal Pelunasan</th>
+                                    <th>Total Transaksi</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                $status = "Porses Pelunasan";
-                                $status1 = "barang masuk";
-                                    if ($permintaan_barang->tampil_status($status, $status1)!=false) {
-                                        $no = 1;
-                                        foreach ($permintaan_barang->tampil_status($status, $status1) as $key) {
-                                            ?>
+                                    if ($hutang->tampil()!=false) {
+                                        $no =1;
+                                        foreach ($hutang->tampil() as $key) {
+                                            if ($key['status'] == 'Belum Lunas') {
+                                                # code...
+                                                $date = strtotime(date('Y-m-d', strtotime($key['tanggal_penerimaan']))); 
+                                                $Today= strtotime(date('Y-m-d'));
+                                                $beda_hari = $Today - $date;
+                                                $tempo_jth = floor($beda_hari/(60*60*24));
+                                                $rentang_waktu = $key['akhir pembayaran'];
+                                                if ($tempo_jth >= $rentang_waktu) {
+                                                    $a = "Jatuh Tempo";
+                                                }else {
+                                                    if  ($rentang_waktu - $tempo_jth == 1) {
+                                                        $a = "Jatuh Tempo Besok";
+                                                    }elseif ($rentang_waktu - $tempo_jth == 2) {
+                                                        $a = "2 Hari Lagi Jatuh Tempo";
+                                                    }elseif ($rentang_waktu - $tempo_jth == 3) {
+                                                        $a = "3 Hari Lagi Jatuh Tempo";
+                                                    }else {
+                                                        $a = "Belum Jatuh Tempo";
+                                                    }
+                                                }
+                                            }else {
+                                                $a = "Sudah Lunas";
+                                            }
+                                                ?> 
                                             <tr>
                                                 <form action="" method="post">
-                                                    <td><?php echo $no++; ?>
-                                                        <input type="hidden" value="<?php echo $key['id_order']; ?>" name="id_order">
-                                                    </td>
+                                                    <td><?php echo $no++; ?> <input type="hidden" value="<?php echo $key['id_order']; ?>" name="id_order"></td>
                                                     <td><?php echo $key['nomor_faktur']?></td>
-                                                    <td><?php echo $key['no_surat_jalan'];?></td>
+                                                    <td><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
-                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan'])); ?></td>
+                                                    <td><?php echo $key['akhir pembayaran'];?> Hari</td>
+                                                    <td><?php if ($key['status'] == "Belum Lunas") {
+                                                        echo "Proses Pelunasan";
+                                                    } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
+                                                    <td><?php echo $key['status']; ?></td>
+                                                    <td><?php echo $a; ?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">
-                                                            <span>
+                                                            <span class="icon">
                                                             <i class="fas fa-tasks"></i>
                                                             </span>
-                                                            <span>
-                                                            
-                                                            </span>
+                                                            <span class="icon">Detail </span>
                                                         </button>
                                                     </td>
                                                 </form>
@@ -78,9 +104,7 @@
                                         }
                                     }
                                     ?>
-                                    
                             </tbody>
-                           
                         </table>
                     </div>
             </div>

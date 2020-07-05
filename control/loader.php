@@ -17,7 +17,7 @@
             $koneksi = new koneksi();
             $barang = new barang();
             $jenis_barang = new jns_barang();
-            $satuan_barang = new jns_satuan();
+            $satuan_barang = new satuan_barang();
             $suplier = new suplier();
             $user = new user();
             $katalog = new katalog();

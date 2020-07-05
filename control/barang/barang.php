@@ -139,7 +139,7 @@
     }
 
 
-    class jns_satuan{
+    class satuan_barang{
 
         public function id_terakhir(){
             $koneksi = new koneksi;

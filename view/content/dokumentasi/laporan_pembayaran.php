@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:80%;
+				width:100%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -108,48 +108,48 @@
 				<hr>
 				<center>
 					LAPORAN PEMBAYARAN
-				</center>
-				<div class="container"> 
-				<center>
-				<table class="table">
+					<table>
 					<tr>
 						<td>
 						<?php
 							if (isset($_GET['src'])){
-								echo "Tanggal : ";
 								$src = $_GET['src'];
 								// echo "src = ".$src."<br>";
 								echo date('d/m/Y', strtotime($_GET['src']));
+								echo "Tanggal : ";
 							}
 							if(isset($_GET['src1'])) {
-								echo " - ";
 								$src1 = $_GET['src1'];
 								// echo "src1= ".$src1."<br>";
+								echo " - ";
 								echo date('d/m/Y', strtotime($_GET['src1']));
-							}
+								}
 							?>
 						</td>
 					</tr>
 				</table>
-				</center>
-				<center>
+				<div class="container">
 				<table class="table" cellpadding="1" cellspacing="1">
-					<thead>
-                        <tr>
-                            <th>No</th>
-							<th>Nomor Faktur</th>
-							<th>Nomor Surat Jalan</th>
-                            <th>Nama Suplier</th>
-            	            <th>Tanggal Penerimaan</th>
-                            <th>Total Transaksi</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-							$laporan->laporan_pembayaran();
-							?>
-                        </tbody>
-                </table>
+				<thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>No Surat Jalan</th>
+									<th>No Faktur</th>
+                                    <th>Nama Suplier</th>
+                                    <th>Tanggal Pelunasan</th>
+									<th>Jatuh Tempo</th>
+                                    <th>Hutang</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+										$laporan->laporan_pelunasan();
+										?>
+                            </tbody>
+                        </table>
+                    </div>
 				</center>
 				<!-- <div class="footer-content"> -->
 						

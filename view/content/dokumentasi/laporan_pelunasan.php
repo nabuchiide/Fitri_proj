@@ -119,16 +119,16 @@
 					<tr>
 						<td>
 						<?php
-							echo "Tanggal : ";
 							if (isset($_GET['src'])){
 								$src = $_GET['src'];
 								// echo "src = ".$src."<br>";
 								echo date('d/m/Y', strtotime($_GET['src']));
+								echo "Tanggal : ";
 							}
-							echo " - ";
 							if(isset($_GET['src1'])) {
 								$src1 = $_GET['src1'];
 								// echo "src1= ".$src1."<br>";
+								echo " - ";
 								echo date('d/m/Y', strtotime($_GET['src1']));
 								}
 							?>
