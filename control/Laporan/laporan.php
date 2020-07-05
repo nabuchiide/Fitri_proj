@@ -97,10 +97,10 @@
                     <td style = "border:1px solid #ddd;" ><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
                     <td style = "border:1px solid #ddd;" ><?php echo $key['nomor_faktur']?></td>
                     <td style = "border:1px solid #ddd;" ><?php echo $key['nama_suplier']; ?></td>
+                    <td style = "border:1px solid #ddd;" ><?php echo date('d/m/y', strtotime($key['tanggal_penerimaan'])); ?></td>
                     <td style = "border:1px solid #ddd;" ><?php if ($key['status'] == "Belum Lunas") { echo "Proses verifikasi"; } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
                     <td style = "border:1px solid #ddd;" ><?php echo $key['akhir pembayaran']?> Hari</td>
                     <td style = "border:1px solid #ddd;" >Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
-                    <td style = "border:1px solid #ddd;" ><?php echo $key['status']; ?></td>
                     <td style = "border:1px solid #ddd;" ><?php echo $a; ?></td>
                     </form>
                 </tr> <?php }

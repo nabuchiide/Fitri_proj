@@ -143,10 +143,10 @@
                                     <th>No Surat Jalan</th>
 									<th  style="width:10%">No Faktur</th>
                                     <th>Nama Suplier</th>
+									<th>Tanggal Penerimaan</th>
                                     <th>Tanggal Pelunasan</th>
 									<th  style="width:5%">Jatuh Tempo</th>
                                     <th>Hutang</th>
-                                    <th>Status</th>
                                     <th>Keterangan</th>
                                 </tr>
                             </thead>
