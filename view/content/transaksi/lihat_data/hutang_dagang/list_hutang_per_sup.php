@@ -50,13 +50,13 @@
                                 </tr>
                                 <?php
                                 $jumlah = $jumlah + $key['total_hutang']; 
-                                } 
-                            } ?>
+                                } ?>
                             </tbody>
                             <tfoot>
                                 <td colspan="2"><b>Total</b></td>
                                 <td colspan="4"><b>Rp <?php echo number_format($jumlah,2); ?></b></td>
-                            </tfoot>
+                                </tfoot>
+                            <?php } ?>
                         </table>
                     </div>
             </div>
