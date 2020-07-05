@@ -36,7 +36,7 @@
 			
 			
 			.table{
-				width:100%;
+				width:80%;
 				margin-top:20px;
 				border-spacing:0;
 				border-collapse:collapse;
@@ -108,15 +108,16 @@
 				<hr>
 				<center>
 					LAPORAN PEMBAYARAN
-					<table>
+				<div class="container">
+					<table class="table">
 					<tr>
 						<td>
 						<?php
 							if (isset($_GET['src'])){
 								$src = $_GET['src'];
 								// echo "src = ".$src."<br>";
-								echo date('d/m/Y', strtotime($_GET['src']));
 								echo "Tanggal : ";
+								echo date('d/m/Y', strtotime($_GET['src']));
 							}
 							if(isset($_GET['src1'])) {
 								$src1 = $_GET['src1'];
@@ -128,19 +129,16 @@
 						</td>
 					</tr>
 				</table>
-				<div class="container">
 				<table class="table" cellpadding="1" cellspacing="1">
 				<thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>No Surat Jalan</th>
 									<th>No Faktur</th>
+                                    <th>No Surat Jalan</th>
                                     <th>Nama Suplier</th>
 									<th>Tanggal Penerimaan</th>
-                                    <th>Tanggal Pelunasan</th>
-									<th>Jatuh Tempo</th>
+									<th>Lama Jatuh Tempo</th>
                                     <th>Hutang</th>
-                                    <th>Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody>

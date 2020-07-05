@@ -2,7 +2,7 @@
    include_once '../../../control/control.php';
 	$id_order = $_GET['id'];
 	$type = $_GET['type'];
-	$permintaan_barang->detail($id_order);
+	$permintaan_barang->detail2($id_order);
   	$stat= $permintaan_barang->status;
    ?>
 <html>
@@ -164,11 +164,16 @@
                         <td>:</td>
                         <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_pembelian)); ?></td>
                     </tr>
-                    <tr <?php if($type == 'pembelian'){echo "hidden";}?>>
+                    <tr <?php if($type == 'pembayaran'){echo "hidden";}?>>
                         <td>Status</td>
                         <td>:</td>
                         <td><?php echo $permintaan_barang->status; ?></td>
                     </tr>
+					<tr  <?php if($type =! 'pembayaran'){echo "hidden";}?>>
+						<td>Lama Jatuh Tempo</td>
+						<td>:</td>
+						<td><?php echo $permintaan_barang->tempo; ?> Hari</td>
+                  	</tr>
                     </table>
                 </p>
 					<table class="table" cellpadding="1" cellspacing="1">

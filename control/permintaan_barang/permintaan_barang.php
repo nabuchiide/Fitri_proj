@@ -55,6 +55,24 @@
             $this->no_faktur = $row['nomor_faktur'];
             $this->tanggal_pelunasan = $row['tanggal_pelunasan'];
         }
+
+        public function detail2($id_order){
+            $koneksi = new koneksi;
+            $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` join `pembayaran` on `order`.`id_order` = `pembayaran`.`id_order` WHERE `order`.`id_order`= '$id_order'");
+            $row = mysqli_fetch_array($query);
+            
+            $this->id_order = $row['id_order'];
+            $this->tanggal = $row['tanggal'];
+            $this->status = $row['status'];
+            $this->total_transaksi = $row['total_transaksi'];
+            $this->nama_suplier = $row['nama_suplier'];
+            $this->tanggal_penerimaan = $row['tanggal_penerimaan'];
+            $this->tanggal_pembelian = $row['tanggal_pembelian'];
+            $this->no_surat_jalan = $row['no_surat_jalan'];
+            $this->no_faktur = $row['nomor_faktur'];
+            $this->tanggal_pelunasan = $row['tanggal_pelunasan'];
+            $this->tempo = $row['tempo'];
+        }
         public function tampil_detail_transaksi(){
             $koneksi = new koneksi;
             $query = mysqli_query($koneksi->conn,"SELECT * FROM `order` join `detail_order` on  `order`.`id_order` = `detail_order`.`id_order`");

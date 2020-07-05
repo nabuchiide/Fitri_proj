@@ -36,15 +36,13 @@
                         <table class="table table-bordered table-striped" width="100%" cellspacing="0" id="dataTable">
                         <thead>
                                 <tr>
-                                <th>No</th>
-                                    <th>No Surat Jalan</th>
+                                    <th>No</th>
 									<th>No Faktur</th>
+                                    <th>No Surat Jalan</th>
                                     <th>Nama Suplier</th>
 									<th>Tanggal Penerimaan</th>
-                                    <th>Tanggal Pelunasan</th>
-									<th>Jatuh Tempo</th>
+									<th>Lama Jatuh Tempo</th>
                                     <th>Hutang</th>
-                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -53,29 +51,6 @@
                                     if ($hutang->tampil()!=false) {
                                         $no =1;
                                         foreach ($hutang->tampil() as $key) {
-                                            if ($key['status'] == 'Belum Lunas') {
-                                                # code...
-                                                $date = strtotime(date('Y-m-d', strtotime($key['tanggal_penerimaan']))); 
-                                                $Today= strtotime(date('Y-m-d'));
-                                                $beda_hari = $Today - $date;
-                                                $tempo_jth = floor($beda_hari/(60*60*24));
-                                                $rentang_waktu = $key['akhir pembayaran'];
-                                                if ($tempo_jth >= $rentang_waktu) {
-                                                    $a = "Jatuh Tempo";
-                                                }else {
-                                                    if  ($rentang_waktu - $tempo_jth == 1) {
-                                                        $a = "Jatuh Tempo Besok";
-                                                    }elseif ($rentang_waktu - $tempo_jth == 2) {
-                                                        $a = "2 Hari Lagi Jatuh Tempo";
-                                                    }elseif ($rentang_waktu - $tempo_jth == 3) {
-                                                        $a = "3 Hari Lagi Jatuh Tempo";
-                                                    }else {
-                                                        $a = "Belum Jatuh Tempo";
-                                                    }
-                                                }
-                                            }else {
-                                                $a = "Sudah Lunas";
-                                            }
                                                 ?> 
                                             <tr>
                                                 <form action="" method="post">
@@ -83,13 +58,9 @@
                                                     <td><?php echo $key['nomor_faktur']?></td>
                                                     <td><?php echo $key['no_surat_jalan']; ?> <input type="hidden" value="<?php echo $key['status']; ?>" name="status"></td>
                                                     <td><?php echo $key['nama_suplier']; ?></td>
-                                                    <td><?php echo $key['tanggal_penerimaan']?></td>
+                                                    <td><?php echo date('d/m/Y', strtotime($key['tanggal_penerimaan']));?></td>
                                                     <td><?php echo $key['akhir pembayaran'];?> Hari</td>
-                                                    <td><?php if ($key['status'] == "Belum Lunas") {
-                                                        echo "Proses Pelunasan";
-                                                    } else { echo date('d/m/Y', strtotime($key['tanggal_pelunasan'])); }?></td>
                                                     <td>Rp <?php echo number_format($key['total_transaksi'],2); ?></td>
-                                                    <td><?php echo $a; ?></td>
                                                     <td>
                                                         <button type="submit" name="detail" class="btn btn-sm btn-link btn-custom">
                                                             <span class="icon">
@@ -115,7 +86,7 @@
 <?php 
     if (isset($_POST['detail'])) {
         $id_order          = trim($_POST['id_order']);
-        $permintaan_barang->detail($id_order)?> 
+        $permintaan_barang->detail2($id_order)?> 
         <div class="col">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"></h1>
@@ -155,6 +126,11 @@
                     <td>Tanggal Penerimaan </td>
                     <td>:</td>
                     <td><?php echo date('d/m/Y', strtotime($permintaan_barang->tanggal_penerimaan)); ?></td>
+                  </tr>
+                  <tr>
+                    <td>Lama Jatuh Tempo</td>
+                    <td>:</td>
+                    <td><?php echo $permintaan_barang->tempo; ?> Hari</td>
                   </tr>
                 </table>
               </p>
